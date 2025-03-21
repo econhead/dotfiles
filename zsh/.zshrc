@@ -23,8 +23,7 @@ unset __conda_setup
 export PATH="$PATH:/Users/econhead/.local/bin"
 export PATH="/Applications/Inkscape.app/Contents/MacOS:$PATH"
 
-alias vi=vim
-alias vim=nvim
+alias vi=nvim 
 
 export PATH="$HOME/.local/share/nvim/lazy-rocks/bin:$PATH"
 
@@ -41,3 +40,6 @@ bindkey '^I' autosuggest-accept
 
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
+source <(fzf --zsh)
+alias fzfp='fzf --preview="bat --color=always {}"'
+alias inv='nvim $(fzf -m --preview="bat --color=always {}")'
