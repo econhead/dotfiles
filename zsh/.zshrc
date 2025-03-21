@@ -16,7 +16,7 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-fastfetch --logo arch
+#fastfetch --logo arch
 
 
 # Created by `pipx` on 2025-02-22 11:55:00
