@@ -23,7 +23,7 @@ unset __conda_setup
 export PATH="$PATH:/Users/econhead/.local/bin"
 export PATH="/Applications/Inkscape.app/Contents/MacOS:$PATH"
 
-alias vi=nvim 
+alias vim=nvim 
 
 export PATH="$HOME/.local/share/nvim/lazy-rocks/bin:$PATH"
 
@@ -43,3 +43,14 @@ source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source <(fzf --zsh)
 alias fzfp='fzf --preview="bat --color=always {}"'
 alias inv='nvim $(fzf -m --preview="bat --color=always {}")'
+
+# ---- Eza (better ls) -----
+
+alias eza="eza --color=always --long --git --no-filesize --icons=always --no-time --no-user --no-permissions"
+
+# thefuck alias
+eval $(thefuck --alias)
+eval $(thefuck --alias fk)
+
+# ---- Zoxide (better cd) ----
+eval "$(zoxide init zsh)"
