@@ -16,6 +16,7 @@ return {
       },
       -- change folder arrow icons
       renderer = {
+        symlink_destination = false,
         indent_markers = {
           enable = true,
         },

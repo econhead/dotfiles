@@ -2,7 +2,7 @@ local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
 config.font = wezterm.font("JetBrains Mono", { weight = "Thin", italic = true })
-config.font_size = 16
+config.font_size = 14
 config.enable_tab_bar = false
 config.window_decorations = "RESIZE"
 config.window_background_opacity = 0.7
@@ -11,7 +11,7 @@ config.prefer_egl = true
 config.window_padding = {
 	left = 5,
 	right = 0,
-	top = 18,
+	top = 10,
 	bottom = 0,
 }
 config.automatically_reload_config = true
