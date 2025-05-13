@@ -61,7 +61,7 @@ inner.horizontal = 10
 inner.vertical =   10  
 outer.left =       10 
 outer.bottom =     10
-outer.top =        10
+outer.top =        5
 outer.right =      10 
 
 # 'main' binding mode declaration
@@ -92,11 +92,12 @@ outer.right =      10
 alt-b = 'exec-and-forget open -a /Applications/Zen.app'
 alt-g = 'exec-and-forget open -a /Applications/ChatGPT.app'
 alt-t = 'exec-and-forget open -a /Applications/WezTerm.app'
-alt-s = 'exec-and-forget open -a /Applications/sioyek.app'
+alt-p = 'exec-and-forget open -a /Applications/sioyek.app'
 alt-d = 'exec-and-forget open -a /Applications/Discord.app'
 alt-i = 'exec-and-forget open -a /Applications/Inkscape.app'
 alt-w = 'exec-and-forget open -a /Applications/WhatsApp.app'
-alt-n = 'exec-and-forget open -a /Applications/Safari.app'
+alt-n = 'exec-and-forget open -a /Applications/Firefox.app'
+alt-s = 'exec-and-forget open -a /Applications/Spotify.app'
 alt-c = 'exec-and-forget open -a Calendar'
 alt-m = 'exec-and-forget open -a Mail'
 alt-f = 'exec-and-forget open -a Finder'
@@ -215,5 +216,12 @@ run = "move-node-to-workspace 6"
 if.app-id = 'com.apple.ActivityMonitor'
 run = "move-node-to-workspace 0"
 
+[[on-window-detected]]
+if.app-id = 'net.whatsapp.WhatsApp'
+run = "move-node-to-workspace 7"
+
+[[on-window-detected]]
+if.app-id = 'com.spotify.client'
+run = "move-node-to-workspace 7"
 
 

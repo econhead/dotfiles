@@ -14,7 +14,6 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
   { import = "econhead.plugins" },
-  { import = "econhead.plugins.lsp" },
 }, {
   checker = {
     enabled = true,

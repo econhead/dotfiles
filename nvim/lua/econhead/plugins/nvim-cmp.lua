@@ -73,7 +73,9 @@ return {
     })
 
     cmp.setup.filetype("tex", {
-      sources = {}, -- Disable all sources for LaTeX
+      sources = {
+        { name = "luasnip" },
+      },
     })
   end,
 }

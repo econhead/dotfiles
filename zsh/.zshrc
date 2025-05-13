@@ -54,3 +54,5 @@ eval $(thefuck --alias fk)
 
 # ---- Zoxide (better cd) ----
 eval "$(zoxide init zsh)"
+
+alias cd='z'
