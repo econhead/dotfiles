@@ -79,7 +79,7 @@ return {
 
   s({ trig = ";x", wordTrig = false, snippetType = "autosnippet", condition = in_mathzone }, { t("\\xi") }),
 
-  s({ trig = ";o", wordTrig = false, snippetType = "autosnippet", condition = in_mathzone }, { t("\\omicron") }),
+  s({ trig = ";w", wordTrig = false, snippetType = "autosnippet", condition = in_mathzone }, { t("\\omicron") }),
 
   s({ trig = ";p", wordTrig = false, snippetType = "autosnippet", condition = in_mathzone }, { t("\\pi") }),
 
@@ -97,7 +97,7 @@ return {
 
   s({ trig = "psi", wordTrig = false, snippetType = "autosnippet" }, { t("\\psi") }),
 
-  s({ trig = ";w", wordTrig = false, snippetType = "autosnippet", condition = in_mathzone }, { t("\\omega") }),
+  s({ trig = ";o", wordTrig = false, snippetType = "autosnippet", condition = in_mathzone }, { t("\\omega") }),
 
   s({ trig = ";A", wordTrig = false, snippetType = "autosnippet", condition = in_mathzone }, { t("\\Alpha") }),
 
@@ -127,7 +127,7 @@ return {
 
   s({ trig = ";X", wordTrig = false, snippetType = "autosnippet", condition = in_mathzone }, { t("\\Xi") }),
 
-  s({ trig = ";O", wordTrig = false, snippetType = "autosnippet", condition = in_mathzone }, { t("\\Omicron") }),
+  s({ trig = ";W", wordTrig = false, snippetType = "autosnippet", condition = in_mathzone }, { t("\\Omicron") }),
 
   s({ trig = ";P", wordTrig = false, snippetType = "autosnippet", condition = in_mathzone }, { t("\\Pi") }),
 
@@ -145,7 +145,7 @@ return {
 
   s({ trig = "Psi", wordTrig = false, snippetType = "autosnippet", condition = in_mathzone }, { t("\\Psi") }),
 
-  s({ trig = ";W", wordTrig = false, snippetType = "autosnippet", condition = in_mathzone }, { t("\\Omega") }),
+  s({ trig = ";O", wordTrig = false, snippetType = "autosnippet", condition = in_mathzone }, { t("\\Omega") }),
 
   ---------------------Greek Letters \var editon-----------------------
 
@@ -177,7 +177,7 @@ return {
 
   s({ trig = ":x", snippetType = "autosnippet", condition = in_mathzone }, { t("\\varxi") }),
 
-  s({ trig = ":o", snippetType = "autosnippet", condition = in_mathzone }, { t("\\varomicron") }),
+  s({ trig = ":w", snippetType = "autosnippet", condition = in_mathzone }, { t("\\varomicron") }),
 
   s({ trig = ":p", snippetType = "autosnippet", condition = in_mathzone }, { t("\\varpi") }),
 
@@ -191,7 +191,7 @@ return {
 
   s({ trig = ":c", snippetType = "autosnippet", condition = in_mathzone }, { t("\\varchi") }),
 
-  s({ trig = ":w", snippetType = "autosnippet", condition = in_mathzone }, { t("\\varomega") }),
+  s({ trig = ":o", snippetType = "autosnippet", condition = in_mathzone }, { t("\\varomega") }),
 
   s({ trig = ":A", snippetType = "autosnippet", condition = in_mathzone }, { t("\\varAlpha") }),
 
@@ -238,11 +238,7 @@ return {
   s({ trig = ":W", snippetType = "autosnippet", condition = in_mathzone }, { t("\\varOmega") }),
 
   ---------------------Mathbb and Mathcal letter notations------
-  s(
-    { trig = "mbb", snippetType = "autosnippet" },
-    fmta("\\mathbb{<>} <>", { i(1), i(0) }),
-    { condition = in_mathzone }
-  ),
+  s({ trig = "mbb", snippetType = "autosnippet" }, fmta("\\mathbb{<>}<>", { i(1), i(0) }), { condition = in_mathzone }),
   -- s({ trig = "aa", snippetType = "autosnippet" }, { t("\\mathbb{A}") }, { condition = in_mathzone }),
 
   --s({ trig = "bb", snippetType = "autosnippet" }, { t("\\mathbb{B}") }, { condition = in_mathzone }),
@@ -251,7 +247,7 @@ return {
 
   -- s({ trig = "dd", snippetType = "autosnippet" }, { t("\\mathbb{D}") }, { condition = in_mathzone }),
 
-  -- s({ trig = "ee", snippetType = "autosnippet" }, { t("\\mathbb{E}") }, { condition = in_mathzone }),
+  s({ trig = "ee", snippetType = "autosnippet" }, { t("\\mathbb{E}") }, { condition = in_mathzone }),
 
   --s({ trig = "ff", snippetType = "autosnippet" }, { t("\\mathbb{F}") }, { condition = in_mathzone }),
 
@@ -259,7 +255,7 @@ return {
 
   -- s({ trig = "hh", snippetType = "autosnippet" }, { t("\\mathbb{H}") }, { condition = in_mathzone }),
 
-  s({ trig = "ii", snippetType = "autosnippet" }, { t("\\mathbb{I}") }, { condition = in_mathzone }),
+  s({ trig = "ii" }, { t("\\mathbb{I}") }, { condition = in_mathzone }),
 
   -- s({ trig = "jj", snippetType = "autosnippet" }, { t("\\mathbb{J}") }, { condition = in_mathzone }),
 
@@ -273,7 +269,7 @@ return {
 
   --s({ trig = "oo", snippetType = "autosnippet" }, { t("\\mathbb{O}") }, { condition = in_mathzone }),
 
-  --s({ trig = "pp", snippetType = "autosnippet" }, { t("\\mathbb{P}") }, { condition = in_mathzone }),
+  s({ trig = "pp", snippetType = "autosnippet" }, { t("\\mathbb{P}") }, { condition = in_mathzone }),
 
   s({ trig = "qq", snippetType = "autosnippet" }, { t("\\mathbb{Q}") }, { condition = in_mathzone }),
 
@@ -285,7 +281,7 @@ return {
 
   --s({ trig = "uu", snippetType = "autosnippet" }, { t("\\mathbb{U}") }, { condition = in_mathzone }),
 
-  --s({ trig = "vv", snippetType = "autosnippet" }, { t("\\mathbb{V}") }, { condition = in_mathzone }),
+  s({ trig = "vv", snippetType = "autosnippet" }, { t("\\mathbb{V}") }, { condition = in_mathzone }),
 
   s({ trig = "ww", snippetType = "autosnippet" }, { t("\\mathbb{W}") }, { condition = in_mathzone }),
 
@@ -297,7 +293,7 @@ return {
 
   s(
     { trig = "mcal", snippetType = "autosnippet" },
-    fmta("\\mathcal{<>} <>", { i(1), i(0) }),
+    fmta("\\mathcal{<>}<>", { i(1), i(0) }),
     { condition = in_mathzone }
   ),
 

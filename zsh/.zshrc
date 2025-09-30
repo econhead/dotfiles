@@ -56,3 +56,7 @@ eval $(thefuck --alias fk)
 eval "$(zoxide init zsh)"
 
 alias cd='z'
+alias python=python3
+alias pip=pip3
+
+export PATH="/opt/homebrew/bin:$PATH"

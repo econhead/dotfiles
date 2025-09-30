@@ -1,5 +1,6 @@
 setlocal spell
 set spelllang=en_us
+autocmd FileType markdown,tex,text setlocal wrap
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
 inoremap <C-f> <Esc>: silent exec '.!inkscape-figures create "'.getline('.').'" "'.b:vimtex.root.'/figures/"'<CR><CR>:w<CR>

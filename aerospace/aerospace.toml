@@ -12,7 +12,13 @@ after-login-command = []
 # You can use it to add commands that run after AeroSpace startup.
 # 'after-startup-command' is run after 'after-login-command'
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
-after-startup-command = [ 'exec-and-forget borders active_color=0xffe1e3e4 inactive_color=0xFF2A2A2A width=5.0' ]
+after-startup-command = [ 'exec-and-forget borders active_color=0xffe1e3e4 inactive_color=0xFF2A2A2A width=5.0',
+'exec-and-forget sketchybar'
+]
+
+exec-on-workspace-change = ['/bin/bash', '-c',
+    'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE'
+]
 
 # Start AeroSpace at login
 start-at-login = true
@@ -44,9 +50,7 @@ key-mapping.preset = 'qwerty'
 # Drop it from your config, if you don't like this behavior
 # See https://nikitabobko.github.io/AeroSpace/guide#on-focus-changed-callbacks
 # See https://nikitabobko.github.io/AeroSpace/commands#move-mouse
-on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 on-focus-changed = "move-mouse window-lazy-center"
-
 
 
 # Gaps between windows (inner-*) and between monitor edges (outer-*).
@@ -59,10 +63,10 @@ on-focus-changed = "move-mouse window-lazy-center"
 [gaps]
 inner.horizontal = 10  
 inner.vertical =   10  
-outer.left =       10 
+outer.left =       10
+outer.right =      10
+outer.top =        8
 outer.bottom =     10
-outer.top =        5
-outer.right =      10 
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -89,19 +93,18 @@ outer.right =      10
 # alt-enter = 'exec-and-forget open -n /System/Applications/Utilities/Terminal.app'
 
 # App shortcuts
-alt-b = 'exec-and-forget open -a /Applications/Zen.app'
+alt-b = 'exec-and-forget open -a Safari'
 alt-g = 'exec-and-forget open -a /Applications/ChatGPT.app'
 alt-t = 'exec-and-forget open -a /Applications/WezTerm.app'
-alt-p = 'exec-and-forget open -a /Applications/sioyek.app'
-alt-d = 'exec-and-forget open -a /Applications/Discord.app'
 alt-i = 'exec-and-forget open -a /Applications/Inkscape.app'
 alt-w = 'exec-and-forget open -a /Applications/WhatsApp.app'
-alt-n = 'exec-and-forget open -a /Applications/Firefox.app'
+alt-z = 'exec-and-forget open -a /Applications/Zen.app'
+alt-p = 'exec-and-forget open -a /Applications/sioyek.app'
 alt-s = 'exec-and-forget open -a /Applications/Spotify.app'
-alt-c = 'exec-and-forget open -a Calendar'
-alt-m = 'exec-and-forget open -a Mail'
 alt-f = 'exec-and-forget open -a Finder'
 alt-a = 'exec-and-forget open -a "/System/Applications/Utilities/Activity Monitor.app"'
+alt-c = 'exec-and-forget open -a /Applications/Visual Studio Code.app'
+alt-d = 'exec-and-forget open -a /Applications/Discord.app' 
 
 
 
@@ -126,6 +129,7 @@ alt-shift-minus = 'resize smart -50'
 alt-shift-equal = 'resize smart +50'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
+alt-0 = 'workspace 0'
 alt-1 = 'workspace 1'
 alt-2 = 'workspace 2'
 alt-3 = 'workspace 3'
@@ -135,7 +139,8 @@ alt-6 = 'workspace 6'
 alt-7 = 'workspace 7'
 alt-8 = 'workspace 8'
 alt-9 = 'workspace 9'
-alt-0 = 'workspace 0'
+
+
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
 alt-shift-1 = 'move-node-to-workspace 1'
@@ -154,6 +159,7 @@ alt-shift-f = 'fullscreen'
 
 [workspace-to-monitor-force-assignment]
 
+0 = 'secondary'
 1 = 'main'
 2 = 'main'
 3 = 'main'
@@ -162,17 +168,17 @@ alt-shift-f = 'fullscreen'
 6 = 'main'
 7 = 'main'
 8 = 'main'
-9 = 'secondary'
-0 = 'secondary'
+9 = 'main'
+
 
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
-alt-tab = 'workspace-back-and-forth'
+#alt-tab = 'workspace-back-and-forth'
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-workspace-to-monitor
-alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
+#alt-shift-tab = 'move-workspace-to-monitor --wrap-around next'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#mode
-alt-shift-semicolon = 'mode service'
+#alt-shift-semicolon = 'mode service'
 
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -193,35 +199,90 @@ if.app-id = 'com.github.wez.wezterm'
 run = "move-node-to-workspace 2"
 
 [[on-window-detected]]
-if.app-id = 'app.zen-browser.zen'
+if.app-id = 'com.apple.Safari'
 run = "move-node-to-workspace 1"
 
 [[on-window-detected]]
+if.app-id = 'app.zen-browser.zen'
+run = "move-node-to-workspace 7"
+
+[[on-window-detected]]
 if.app-id = 'com.openai.chat'
-run = "move-node-to-workspace 4"
-
-[[on-window-detected]]
-if.app-id = 'org.inkscape.Inkscape'
-run = "move-node-to-workspace 3"
-
-[[on-window-detected]]
-if.app-id = 'com.apple.iCal'
 run = "move-node-to-workspace 5"
 
 [[on-window-detected]]
-if.app-id = 'com.apple.mail'
-run = "move-node-to-workspace 6"
+if.app-id = 'org.inkscape.Inkscape'
+run = "move-node-to-workspace 4"
 
 [[on-window-detected]]
-if.app-id = 'com.apple.ActivityMonitor'
-run = "move-node-to-workspace 0"
+if.app-id = 'ch.protonvpn.mac'
+run = "layout floating"
+
+[[on-window-detected]]
+if.app-id = 'com.apple.iCal'
+run = "layout floating"
+
+[[on-window-detected]]
+if.app-id = 'com.apple.mail'
+run = "layout floating"
 
 [[on-window-detected]]
 if.app-id = 'net.whatsapp.WhatsApp'
-run = "move-node-to-workspace 7"
+run = "layout floating"
+
+
+[[on-window-detected]]
+if.app-id = 'com.microsoft.VSCode'
+run = "move-node-to-workspace 4"
+
 
 [[on-window-detected]]
 if.app-id = 'com.spotify.client'
-run = "move-node-to-workspace 7"
+run = "layout floating"
 
+[[on-window-detected]]
+if.app-id = 'org.m0k.transmission'
+run = "layout floating"
 
+[[on-window-detected]]
+if.app-id = 'com.apple.finder'
+run = "layout floating"
+
+[[on-window-detected]]
+if.app-id = 'com.apple.ActivityMonitor'
+run = "layout floating"
+
+[[on-window-detected]]
+if.app-id = 'com.adguard.safari.AdGuard'
+run = "layout floating"
+
+[[on-window-detected]]
+if.app-id = 'com.jordabaird.Ice'
+run = "layout floating"
+
+[[on-window-detected]]
+if.app-id = 'ru.keepcoder.Telegram'
+run = "layout floating"
+
+[[on-window-detected]]
+if.app-id = 'nl.jeffreykuiken.NoirApp.mac'
+run = "layout floating"
+
+[[on-window-detected]]
+if.app-id = 'org.localsend.localsendApp'
+run = "layout floating"
+
+[[on-window-detected]]
+if.app-id = 'com.keinois.PrettyProgressApp'
+run = "layout floating"
+
+[[on-window-detected]]
+if.app-id = 'com.apple.PhotoBooth'
+run = "layout floating"
+
+[[on-window-detected]]
+if.app-id = 'info.sioyek.sioyek'
+run = "move-node-to-workspace 3"
+[[on-window-detected]]
+if.app-id = 'com.hnc.Discord'
+run = "move-node-to-workspace 6"

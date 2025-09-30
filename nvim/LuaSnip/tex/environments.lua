@@ -52,7 +52,7 @@ end
 return {
   -------------------------------Document Preamble Templates--------------
   s(
-    { trig = "tempart" },
+    { trig = "tempart2" },
     fmta(
       [[
     \documentclass[12pt,a4paper]{article}
@@ -95,6 +95,23 @@ return {
     )
   ),
 
+  s(
+    { trig = "tempart1" },
+    fmta(
+      [[
+    \documentclass[12pt,a4paper]{article}
+    \input{<>}
+    \begin{document}
+    <>
+    \end{document}
+ ]],
+      {
+        i(1, "../preamble.tex"),
+        i(2),
+      }
+    )
+  ),
+
   s({ trig = "pac", snippetType = "autosnippet" }, fmta("\\usepackage[<>]{<>} <>", { i(1), i(2), i(0) })),
   s(
     { trig = "header", snippetType = "autosnippet" },
@@ -112,7 +129,7 @@ return {
   ----------------------------LaTeX Enviroments----------------------------------
 
   s(
-    { trig = "env", dscr = "A LaTeX environment", snippetType = "autosnippet" },
+    { trig = "begg", dscr = "A LaTeX environment", snippetType = "autosnippet" },
     fmta(
       [[
       \begin{<>}
@@ -129,16 +146,16 @@ return {
 
   s(
     { trig = "mk", snippetType = "autosnippet" },
-    fmta([[\(<>\) <>]], {
-      i(1),
+    fmta([[\(<>\)<>]], {
+      d(1, get_visual),
       i(0),
     })
   ),
 
   s(
     { trig = "dm", snippetType = "autosnippet" },
-    fmta([[ \[<>\] <>]], {
-      i(1),
+    fmta([[\[<>\]<>]], {
+      d(1, get_visual),
       i(0),
     })
   ),
@@ -148,7 +165,7 @@ return {
     fmta(
       [[
       \begin{cases}
-         <>
+      <>
       \end{cases}
       ]],
       {
@@ -209,7 +226,7 @@ return {
       \end{enumerate}
       ]],
       {
-        i(1),
+        d(1, get_visual),
       }
     )
   ),
@@ -223,38 +240,14 @@ return {
       \end{itemize}
       ]],
       {
-        i(1),
+        d(1, get_visual),
       }
-    )
-  ),
-
-  s(
-    { trig = "align", dscr = "LaTeX Align environment" },
-    fmta(
-      [[
-      \begin{align*}
-          <>
-      \end{align*}
-    ]],
-      { d(1, get_visual) }
-    )
-  ),
-
-  s(
-    { trig = "eqn" },
-    fmta(
-      [[
-      \begin{equation*}
-          <>
-      \end{equation*}
-      ]],
-      { d(1, get_visual) }
     )
   ),
 
   -----------------------Wrap text in LaTeX environments----------------------------
   s(
-    { trig = "align*" },
+    { trig = "align*", snippetType = "autosnippet" },
     fmta(
       [[
       \begin{align*}
@@ -266,7 +259,7 @@ return {
   ),
 
   s(
-    { trig = "eqn*" },
+    { trig = "eqn", snippetType = "autosnippet" },
     fmta(
       [[
       \begin{equation*}
@@ -278,7 +271,7 @@ return {
   ),
 
   s(
-    { trig = "tii", dscr = "Expands 'tii' into LaTeX's textit{} command." },
+    { trig = "tii", dscr = "Expands 'tii' into LaTeX's textit{} command.", snippetType = "autosnippet" },
     fmta("\\textit{<>} <>", {
       d(1, get_visual),
       i(0),
@@ -286,7 +279,7 @@ return {
   ),
 
   s(
-    { trig = "tbb", dscr = "Expands 'tbb' into LaTeX's textbf{} command." },
+    { trig = "tbb", snippetType = "autosnippet" },
     fmta("\\textbf{<>} <>", {
       d(1, get_visual),
       i(0),
@@ -294,47 +287,71 @@ return {
   ),
 
   s(
-    { trig = "tuu", dscr = "Expands 'tuu' into LaTeX's underline{} command." },
+    { trig = "tuu", snippetType = "autosnippet" },
     fmta("\\underline{<>} <>", {
       d(1, get_visual),
       i(0),
     })
   ),
   s(
-    { trig = "h1", dscr = "Top-level section" },
+    { trig = "h1", dscr = "Top-level section", snippetType = "autosnippet" },
     fmta([[\section{<>}]], { i(1) }),
     { condition = line_begin } -- set condition in the `opts` table
   ),
 
   s(
-    { trig = "h2", dscr = "second-level section" },
+    { trig = "h2", dscr = "second-level section", snippetType = "autosnippet" },
     fmta([[\subsection{<>}]], { i(1) }),
     { condition = line_begin } -- set condition in the `opts` table
   ),
 
   s(
-    { trig = "h3", dscr = "third-level section" },
+    { trig = "h3", dscr = "third-level section", snippetType = "autosnippet" },
     fmta([[\subsubsection{<>}]], { i(1) }),
     { condition = line_begin } -- set condition in the `opts` table
   ),
 
   s(
-    { trig = "H1", dscr = "Top-level section unnumbered" },
+    { trig = "H1", dscr = "Top-level section unnumbered", snippetType = "autosnippet" },
     fmta([[\section*{<>}]], { i(1) }),
     { condition = line_begin } -- set condition in the `opts` table
   ),
 
   s(
-    { trig = "H2", dscr = "second-level section unnumbered" },
+    { trig = "H2", dscr = "second-level section unnumbered", snippetType = "autosnippet" },
     fmta([[\subsection*{<>}]], { i(1) }),
     { condition = line_begin } -- set condition in the `opts` table
   ),
 
   s(
-    { trig = "H3", dscr = "third-level section unnumbered" },
+    { trig = "h1", dscr = "Top-level section", snippetType = "autosnippet" },
+    fmta([[\section{<>}]], { i(1) }),
+    { condition = line_begin } -- set condition in the `opts` table
+  ),
+  s(
+    { trig = "H3", dscr = "third-level section unnumbered", snippetType = "autosnippet" },
     fmta([[\subsubsection*{<>}]], { i(1) }),
     { condition = line_begin } -- set condition in the `opts` table
   ),
 
-  s({ trig = "tt", snippetType = "autosnippet" }, fmta("\\text{ <> } <>", { i(1), i(0) }), { condition = in_mathzone }),
+  s(
+    { trig = "section1", dscr = "Top-level section", snippetType = "autosnippet" },
+    fmta([[\section{<>}]], { d(1, get_visual) }),
+    { condition = line_begin } -- set condition in the `opts` table
+  ),
+  s(
+    { trig = "section2", dscr = "second-level section", snippetType = "autosnippet" },
+    fmta([[\subsection{<>}]], { d(1, get_visual) }),
+    { condition = line_begin } -- set condition in the `opts` table
+  ),
+  s(
+    { trig = "section3", dscr = "third-level section", snippetType = "autosnippet" },
+    fmta([[\subsubsection{<>}]], { d(1, get_visual) }),
+    { condition = line_begin } -- set condition in the `opts` table
+  ),
+  s(
+    { trig = "tt", snippetType = "autosnippet" },
+    fmta("\\text{<>}<>", { d(1, get_visual), i(0) }),
+    { condition = in_mathzone }
+  ),
 }

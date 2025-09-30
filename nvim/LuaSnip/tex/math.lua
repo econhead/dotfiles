@@ -119,18 +119,18 @@ return {
     condition = in_mathzone,
   }),
 
-  s({
-    trig = "(\\?%w+)([.,])",
-    regTrig = true, -- Enable regex triggering
-    wordTrig = false, -- triggering within words
-    snippetType = "autosnippet",
-  }, {
-    f(function(_, snip)
-      return "\\vec{" .. snip.captures[1] .. "}"
-    end),
-  }, {
-    condition = in_mathzone,
-  }),
+  -- s({
+  --   trig = "(\\?%w+)([.,])",
+  --   regTrig = true, -- Enable regex triggering
+  --   wordTrig = false, -- triggering within words
+  --   snippetType = "autosnippet",
+  -- }, {
+  --   f(function(_, snip)
+  --     return "\\vec{" .. snip.captures[1] .. "}"
+  --   end),
+  -- }, {
+  --   condition = in_mathzone,
+  -- }),
 
   -----------------Autosubscript-----------------------------------------------
   s({
@@ -187,38 +187,6 @@ return {
     { condition = in_mathzone }
   ),
 
-  ----------------------------Wrap into inline and Display math mode--------------------------
-
-  s(
-    { trig = "([^%a])mm", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
-    fmta("<>\\(<>\\)", {
-      f(function(_, snip)
-        return snip.captures[1]
-      end),
-      d(1, get_visual),
-    })
-  ),
-
-  s(
-    { trig = "([^%a])dd", wordTrig = false, regTrig = true, snippetType = "autosnippet" },
-    fmta("<>\\[<>\\]", {
-      f(function(_, snip)
-        return snip.captures[1]
-      end),
-      d(1, get_visual),
-    })
-  ),
-
-  s(
-    { trig = "([^%a])ee", regTrig = true, wordTrig = false },
-    fmta("<>e^{<>}", {
-      f(function(_, snip)
-        return snip.captures[1]
-      end),
-      d(1, get_visual),
-    })
-  ),
-
   ----------------------------------------------------------------------------
   s({ trig = "...", snippetType = "autosnippet" }, { t("\\ldots") }, { condition = in_mathzone }),
 
@@ -230,6 +198,12 @@ return {
 
   -------------------Logic, Set Theroy and other common Operators----------------------------------
   s({ trig = "~", snippetType = "autosnippet" }, { t("\\sim") }, { condition = in_mathzone }),
+
+  s(
+    { trig = "iid", snippetType = "autosnippet" },
+    { t("\\overset{\\mathrm{iid}}{\\sim}") },
+    { condition = in_mathzone }
+  ),
 
   s({ trig = ".~", snippetType = "autosnippet" }, { t("\\mathrel{\\dot\\sim}") }, { condition = in_mathzone }),
 
@@ -269,9 +243,11 @@ return {
 
   s({ trig = "ni", snippetType = "autosnippet" }, { t("\\ni") }, { condition = in_mathzone }),
 
-  s({ trig = "the", snippetType = "autosnippet" }, { t("\\therefore") }, { condition = in_mathzone }),
+  s({ trig = "neq", snippetType = "autosnippet" }, { t("\\neq") }, { condition = in_mathzone }),
 
-  s({ trig = "bec", snippetType = "autosnippet" }, { t("\\because") }, { condition = in_mathzone }),
+  s({ trig = "therefore", snippetType = "autosnippet" }, { t("\\therefore") }, { condition = in_mathzone }),
+
+  s({ trig = "because", snippetType = "autosnippet" }, { t("\\because") }, { condition = in_mathzone }),
 
   s({ trig = "map", snippetType = "autosnippet" }, { t("\\mapsto") }, { condition = in_mathzone }),
 
@@ -297,9 +273,9 @@ return {
 
   s({ trig = "neg", snippetType = "autosnippet" }, { t("\\neg") }, { condition = in_mathzone }),
 
-  s({ trig = "uu", snippetType = "autosnippet" }, { t("\\cup") }, { condition = in_mathzone }),
+  s({ trig = "cup", snippetType = "autosnippet" }, { t("\\cup") }, { condition = in_mathzone }),
 
-  s({ trig = "Nn", snippetType = "autosnippet" }, { t("\\cap") }, { condition = in_mathzone }),
+  s({ trig = "cap", snippetType = "autosnippet" }, { t("\\cap") }, { condition = in_mathzone }),
 
   -----------------------------------common math functions---------------
 
@@ -333,11 +309,9 @@ return {
 
   s({ trig = "exp", wordTrig = false, snippetType = "autosnippet", condition = in_mathzone }, { t("\\exp") }),
 
-  -- s({ trig = "lim", wordTrig = false, snippetType = "autosnippet", condition = in_mathzone }, { t("\\lim") }),
+  s({ trig = "max", wordTrig = false, snippetType = "autosnippet", condition = in_mathzone }, { t("\\max") }),
 
-  s({ trig = ";max", wordTrig = false, snippetType = "autosnippet", condition = in_mathzone }, { t("\\max") }),
-
-  s({ trig = ";min", wordTrig = false, snippetType = "autosnippet", condition = in_mathzone }, { t("\\min") }),
+  s({ trig = "min", wordTrig = false, snippetType = "autosnippet", condition = in_mathzone }, { t("\\min") }),
 
   s({ trig = "sup", wordTrig = false, snippetType = "autosnippet", condition = in_mathzone }, { t("\\sup") }),
 
@@ -465,20 +439,22 @@ return {
   ),
 
   s(
-    { trig = "cup", snippetType = "autosnippet" },
-    fmta("\\bigcup_{{<> \\in <> }} <>", {
+    { trig = "bcup", snippetType = "autosnippet" },
+    fmta("\\bigcup_{{<> = <>}}^{<>} <>", {
       i(1, "i"),
-      i(2, "I"),
+      i(2, "1"),
+      i(3, "n"),
       i(0),
     }),
     { condition = in_mathzone }
   ),
 
   s(
-    { trig = "cap", snippetType = "autosnippet" },
-    fmta("\\bigcap_{{<> \\in <> }} <>", {
+    { trig = "bcap", snippetType = "autosnippet" },
+    fmta("\\bigcap_{{<> = <>}}^{<>} <>", {
       i(1, "i"),
-      i(2, "I"),
+      i(2, "1"),
+      i(3, "n"),
       i(0),
     }),
     { condition = in_mathzone }
@@ -523,10 +499,10 @@ return {
   -------------------------------Integrals------------------------------------------
 
   s(
-    { trig = "dint", dscr = "Definite Integral", snippetType = "autosnippet" },
+    { trig = "lint", dscr = "Definite Integral", snippetType = "autosnippet" },
     fmta(
       [[
-\int_{<>}^{<>} <> <>
+\int_{<>}^{<>} <> \\mathrm{d}<>
       ]],
       {
         i(1, "-\\infty"), -- Default lower limit (-∞)
@@ -538,25 +514,58 @@ return {
     { condition = in_mathzone } -- Expands only in math mode
   ),
 
-  s({ trig = "1int", snippetType = "autosnippet", condition = in_mathzone }, t("\\int ")),
-
-  s({ trig = "2int", snippetType = "autosnippet", condition = in_mathzone }, t("\\iint ")),
-
-  s({ trig = "3int", snippetType = "autosnippet", condition = in_mathzone }, t("\\iiint ")),
-
-  s({ trig = "0int", snippetType = "autosnippet", condition = in_mathzone }, t("\\oint ")),
+  s(
+    { trig = "1int", snippetType = "autosnippet", condition = in_mathzone },
+    fmta("\\int <> \\mathrm{d}<>", { i(1, "f(x)"), i(2) })
+  ),
+  s(
+    { trig = "1dint", snippetType = "autosnippet", condition = in_mathzone },
+    fmta("\\int_{<>}^{<>} <> \\mathrm{d}<>", { i(1, "-\\infty"), i(2, "\\infty"), i(3, "f(x)"), i(4) })
+  ),
+  s(
+    { trig = "2int", snippetType = "autosnippet", condition = in_mathzone },
+    fmta("\\iint <> \\mathrm{d}<> \\mathrm{d}<>", { i(1, "f(x,y)"), i(2), i(3) })
+  ),
+  s(
+    { trig = "2dint", snippetType = "autosnippet", condition = in_mathzone },
+    fmta(
+      "\\int_{<>}^{<>}\\int_{<>}^{<>} <> \\mathrm{d}<> \\mathrm{d}<>",
+      { i(1, "-\\infty"), i(2, "\\infty"), i(3, "-\\infty"), i(4, "\\infty"), i(5, "f(x,y)"), i(6), i(7) }
+    )
+  ),
+  s(
+    { trig = "3int", snippetType = "autosnippet", condition = in_mathzone },
+    fmta("\\iiint <> \\mathrm{d}<> \\mathrm{d}<> \\mathrm{d}<>", { i(1, "f(x,y,z)"), i(2), i(3), i(4) })
+  ),
+  s(
+    { trig = "3dint", snippetType = "autosnippet", condition = in_mathzone },
+    fmta("\\int_{<>}^{<>}\\int_{<>}^{<>}\\int_{<>}^{<>} <> \\mathrm{d}<> \\mathrm{d}<> \\mathrm{d}<>", {
+      i(1, "-\\infty"),
+      i(2, "\\infty"),
+      i(3, "-\\infty"),
+      i(4, "\\infty"),
+      i(5, "-\\infty"),
+      i(6, "\\infty"),
+      i(7, "f(x,y,z)"),
+      i(8),
+      i(9),
+      i(10),
+    })
+  ),
+  s(
+    { trig = "0int", snippetType = "autosnippet", condition = in_mathzone },
+    fmta("\\oint <>  \\mathrm{d}<>", { i(1, "f(x)"), i(2) })
+  ),
 
   s(
     { trig = "cint", snippetType = "autosnippet", condition = in_mathzone },
-    fmta("\\int_{<>}^{<>} <>", { i(1, "0"), i(2, "\\infty"), i(0) })
+    fmta("\\int_{<>}^{<>} <>  \\mathrm{d}<>", { i(1, "0"), i(2, "\\infty"), i(3, "f(x)"), i(4) })
   ),
-
-  s({ trig = "inti", snippetType = "autosnippet", condition = in_mathzone }, t("\\int_{-\\infty}^{\\infty} ")),
 
   ------------------------------------Summation----------------------------------------------
   s(
     { trig = "sum", snippetType = "autosnippet" },
-    fmta("\\sum_{n=<>}^{<>} <>", { i(1, "1"), i(2, "\\infty"), i(3, "function") }),
+    fmta("\\sum_{<>}^{<>} <>", { i(1, "i=1"), i(2, "\\infty"), i(3, "function") }),
     { condition = in_mathzone }
   ),
 
@@ -677,7 +686,7 @@ return {
     { condition = in_mathzone }
   ),
 
-  --------------------------Maximization Problem with 2 constraints------------------------
+  --------------------------Maximization Problem in R with 2 constraints------------------------
   s(
     { trig = "2maxp", snippetType = "autosnippet" },
     fmta(
@@ -692,7 +701,7 @@ return {
     )
   ),
 
-  ------------------Minimization Problem with 2 constraints---------------------------------
+  ------------------Minimization Problem in R with 2 constraints---------------------------------
   s(
     { trig = "2minp", snippetType = "autosnippet" },
     fmta(
@@ -707,7 +716,7 @@ return {
     )
   ),
 
-  ------------------Maximization and Minimization Problems with one constraint-------------------------------
+  ------------------Maximization and Minimization Problems in R with one constraint-------------------------------
   s(
     { trig = "1maxp", snippetType = "autosnippet" },
     fmta(
@@ -734,7 +743,7 @@ return {
     )
   ),
 
-  ------------------Maximization and Minimization in R^n_+ with one constraint--------------------------------------
+  ------------------Maximization and Minimization Problems in R^n_+ with one constraint--------------------------------------
   s(
     { trig = "nmaxp", snippetType = "autosnippet" },
     fmta(
@@ -749,7 +758,7 @@ return {
   ),
 
   s(
-    { trig = "nmixp", snippetType = "autosnippet" },
+    { trig = "nminp", snippetType = "autosnippet" },
     fmta(
       [[
         \begin{align*}

@@ -12,7 +12,7 @@
                                     "key_code": "caps_lock",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "key_code": "left_option" }],
+                                "to": [{ "key_code": "left_control" }],
                                 "to_if_alone": [{ "key_code": "escape" }],
                                 "type": "basic"
                             }
@@ -33,15 +33,6 @@
                             "to": [{ "pointing_button": "button2" }]
                         }
                     ]
-                },
-                {
-                    "identifiers": {
-                        "is_keyboard": true,
-                        "is_pointing_device": true,
-                        "product_id": 64007,
-                        "vendor_id": 13652
-                    },
-                    "ignore": false
                 }
             ],
             "name": "Default profile",
