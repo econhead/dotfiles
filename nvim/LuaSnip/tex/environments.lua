@@ -224,9 +224,11 @@ return {
       \begin{enumerate}
 	    \item <>
       \end{enumerate}
+      <>
       ]],
       {
         d(1, get_visual),
+        i(0),
       }
     )
   ),
@@ -238,9 +240,11 @@ return {
       \begin{itemize}
 	    \item <>
       \end{itemize}
+      <>
       ]],
       {
         d(1, get_visual),
+        i(0),
       }
     )
   ),
@@ -253,8 +257,9 @@ return {
       \begin{align*}
           <>
       \end{align*}
+      <>
     ]],
-      { d(1, get_visual) }
+      { d(1, get_visual), i(0) }
     )
   ),
 
@@ -265,14 +270,15 @@ return {
       \begin{equation*}
           <>
       \end{equation*}
+      <>
       ]],
-      { d(1, get_visual) }
+      { d(1, get_visual), i(0) }
     )
   ),
 
   s(
     { trig = "tii", dscr = "Expands 'tii' into LaTeX's textit{} command.", snippetType = "autosnippet" },
-    fmta("\\textit{<>} <>", {
+    fmta("\\textit{<>}<>", {
       d(1, get_visual),
       i(0),
     })
@@ -280,7 +286,7 @@ return {
 
   s(
     { trig = "tbb", snippetType = "autosnippet" },
-    fmta("\\textbf{<>} <>", {
+    fmta("\\textbf{<>}<>", {
       d(1, get_visual),
       i(0),
     })
@@ -288,7 +294,7 @@ return {
 
   s(
     { trig = "tuu", snippetType = "autosnippet" },
-    fmta("\\underline{<>} <>", {
+    fmta("\\underline{<>}<>", {
       d(1, get_visual),
       i(0),
     })

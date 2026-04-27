@@ -1,5 +1,5 @@
-setlocal spell
-set spelllang=en_us
+" setlocal spell
+" set spelllang=en_us,en_gb
 autocmd FileType markdown,tex,text setlocal wrap
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 

@@ -28,4 +28,12 @@ vim.api.nvim_create_autocmd("User", {
   end,
 })
 
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "tex", "markdown" },
+  callback = function()
+    vim.opt_local.spell = true
+    vim.opt_local.spelllang = { "en_us", "en_gb" }
+  end,
+})
+
 vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"

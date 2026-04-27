@@ -65,7 +65,7 @@ inner.horizontal = 10
 inner.vertical =   10  
 outer.left =       10
 outer.right =      10
-outer.top =        8
+outer.top =        10
 outer.bottom =     10
 
 # 'main' binding mode declaration
@@ -261,8 +261,8 @@ if.app-id = 'com.jordabaird.Ice'
 run = "layout floating"
 
 [[on-window-detected]]
-if.app-id = 'ru.keepcoder.Telegram'
-run = "layout floating"
+if.app-id = 'info.sioyek.sioyek'
+run = "move-node-to-workspace 2"
 
 [[on-window-detected]]
 if.app-id = 'nl.jeffreykuiken.NoirApp.mac'
@@ -280,9 +280,15 @@ run = "layout floating"
 if.app-id = 'com.apple.PhotoBooth'
 run = "layout floating"
 
-[[on-window-detected]]
-if.app-id = 'info.sioyek.sioyek'
-run = "move-node-to-workspace 3"
+
 [[on-window-detected]]
 if.app-id = 'com.hnc.Discord'
 run = "move-node-to-workspace 6"
+
+[[on-window-detected]]
+if.app-id = 'org.qbittorrent.qBittorrent'
+run = "layout floating"
+
+[[on-window-detected]]
+if.app-id = 'com.aditiya.icmobxu'
+run = "layout floating"

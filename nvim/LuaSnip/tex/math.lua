@@ -564,7 +564,7 @@ return {
 
   ------------------------------------Summation----------------------------------------------
   s(
-    { trig = "sum", snippetType = "autosnippet" },
+    { trig = "dsum", snippetType = "autosnippet" },
     fmta("\\sum_{<>}^{<>} <>", { i(1, "i=1"), i(2, "\\infty"), i(3, "function") }),
     { condition = in_mathzone }
   ),
@@ -599,8 +599,13 @@ return {
 
   ------------------------------------Partial derivative--------------------------------------------------
   s(
-    { trig = "part", snippetType = "autosnippet" },
-    fmta("\\frac{\\partial <>}{\\partial <>} <>", { i(1, "U"), i(2, "x"), i(0) }),
+    { trig = "1partial", snippetType = "autosnippet" },
+    fmta("\\frac{\\partial <>}{\\partial <>} <>", { i(1, "f(x)"), i(2, "x"), i(0) }),
+    { condition = in_mathzone }
+  ),
+  s(
+    { trig = "2partial", snippetType = "autosnippet" },
+    fmta("\\frac{\\partial^2 <>}{\\partial <> \\partial <>}<>", { i(1, "f(x,y)"), i(2, "x"), i(3, "y"), i(0) }),
     { condition = in_mathzone }
   ),
 
@@ -793,5 +798,11 @@ return {
         ]],
       { i(1), i(2), i(3) }
     )
+  ),
+
+  s(
+    { trig = "opn", snippetType = "autosnippet" },
+    fmta("\\operatorname{<>}<>", { i(1), i(2) }),
+    { condition = in_mathzone }
   ),
 }
