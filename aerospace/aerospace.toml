@@ -105,7 +105,7 @@ alt-f = 'exec-and-forget open -a Finder'
 alt-a = 'exec-and-forget open -a "/System/Applications/Utilities/Activity Monitor.app"'
 alt-c = 'exec-and-forget open -a /Applications/Visual Studio Code.app'
 alt-d = 'exec-and-forget open -a /Applications/Discord.app' 
-
+alt-m = 'exec-and-forget open -a /Applications/Kaset.app/'
 
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#layout
@@ -195,15 +195,15 @@ alt-shift-k = ['join-with up', 'mode main']
 alt-shift-l = ['join-with right', 'mode main']
 
 [[on-window-detected]]
-if.app-id = 'com.github.wez.wezterm'
-run = "move-node-to-workspace 2"
-
-[[on-window-detected]]
 if.app-id = 'com.apple.Safari'
 run = "move-node-to-workspace 1"
 
 [[on-window-detected]]
-if.app-id = 'app.zen-browser.zen'
+if.app-id = 'com.github.wez.wezterm'
+run = "move-node-to-workspace 2"
+
+[[on-window-detected]]
+if.app-id = 'com.eltima.elmedia6.mas'
 run = "move-node-to-workspace 7"
 
 [[on-window-detected]]
@@ -233,16 +233,13 @@ run = "layout floating"
 
 [[on-window-detected]]
 if.app-id = 'com.microsoft.VSCode'
-run = "move-node-to-workspace 4"
+run = "move-node-to-workspace 3"
 
 
 [[on-window-detected]]
 if.app-id = 'com.spotify.client'
 run = "layout floating"
 
-[[on-window-detected]]
-if.app-id = 'org.m0k.transmission'
-run = "layout floating"
 
 [[on-window-detected]]
 if.app-id = 'com.apple.finder'
@@ -291,4 +288,12 @@ run = "layout floating"
 
 [[on-window-detected]]
 if.app-id = 'com.aditiya.icmobxu'
+run = "layout floating"
+
+[[on-window-detected]]
+if.app-id = 'com.apple.AppStore'
+run = "layout floating"
+
+[[on-window-detected]]
+if.app-id = 'com.sertacozercan.Kaset'
 run = "layout floating"

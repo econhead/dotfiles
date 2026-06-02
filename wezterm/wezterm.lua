@@ -5,8 +5,8 @@ config.font = wezterm.font("JetBrains Mono", { weight = "Light", italic = false 
 config.font_size = 17.5
 config.enable_tab_bar = false
 config.window_decorations = "RESIZE"
-config.window_background_opacity = 1
-config.macos_window_background_blur = 0
+config.window_background_opacity = 0.95
+config.macos_window_background_blur = 20
 config.prefer_egl = true
 config.window_padding = {
 	left = 0,
