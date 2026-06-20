@@ -13,7 +13,7 @@ return {
       "Underfull",
       "Overfull",
     }
-    vim.o.conceallevel = 0
+    vim.o.conceallevel = 1
     vim.g.tex_conceal = "abdmg"
     vim.g.vimtex_compiler_latexmk = {
       aux_dir = "/Users/econhead/.texfiles/",
