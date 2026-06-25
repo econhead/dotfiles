@@ -203,6 +203,14 @@ if.app-id = 'com.github.wez.wezterm'
 run = "move-node-to-workspace 2"
 
 [[on-window-detected]]
+if.app-id = 'com.openai.chat'
+run = "move-node-to-workspace 4"
+
+[[on-window-detected]]
+if.app-id = 'com.openai.codex'
+run = "move-node-to-workspace 4"
+
+[[on-window-detected]]
 if.app-id = 'com.eltima.elmedia6.mas'
 run = "move-node-to-workspace 8"
 
@@ -212,11 +220,11 @@ run = "move-node-to-workspace 5"
 
 [[on-window-detected]]
 if.app-id = 'com.microsoft.Word'
-run = "move-node-to-workspace 4"
+run = "move-node-to-workspace 6"
 
 [[on-window-detected]]
 if.app-id = 'com.microsoft.Powerpoint'
-run = "move-node-to-workspace 6"
+run = "move-node-to-workspace 7"
 
 [[on-window-detected]]
 if.app-id = 'org.inkscape.Inkscape'
@@ -265,9 +273,9 @@ run = "layout floating"
 if.app-id = 'com.jordabaird.Ice'
 run = "layout floating"
 
-[[on-window-detected]]
-if.app-id = 'info.sioyek.sioyek'
-run = "move-node-to-workspace 2"
+#[[on-window-detected]]
+#if.app-id = 'info.sioyek.sioyek'
+#run = "move-node-to-workspace 2"
 
 [[on-window-detected]]
 if.app-id = 'nl.jeffreykuiken.NoirApp.mac'
@@ -288,7 +296,7 @@ run = "layout floating"
 
 [[on-window-detected]]
 if.app-id = 'com.hnc.Discord'
-run = "move-node-to-workspace 7"
+run = "move-node-to-workspace 9"
 
 [[on-window-detected]]
 if.app-id = 'org.qbittorrent.qBittorrent'
