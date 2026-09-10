@@ -1,0 +1,49 @@
+# Theme
+theme = Catppuccin Mocha
+background = 14141b
+
+# Window Settings
+macos-titlebar-style = hidden
+background-opacity = 0.93
+background-blur-radius = 20
+window-padding-x = 5
+window-padding-y = 5
+window-padding-balance = true
+window-colorspace = display-p3
+confirm-close-surface = false
+
+# Fonts 
+font-family = Comic Mono 
+font-family-bold = Comic Mono Bold
+font-family-italic = Comic Mono Italic
+font-size = 15.5
+adjust-cell-height = 10%
+
+# Mouse
+mouse-hide-while-typing = true
+
+# Keybindings
+keybind = cmd+shift+r=reload_config
+keybind = cmd+shift+s=write_screen_file:open
+
+# Tmux Keybindings
+# \x01 is ctrl+a (tmux prefix)
+keybind = cmd+t=text:\x01c
+keybind = cmd+x=text:\x01x
+
+keybind = cmd+k=text:\x01\x06
+keybind = cmd+j=text:\x01\x10
+
+# Switch to tmux window 1-9
+keybind = cmd+digit1=text:\x011
+keybind = cmd+digit2=text:\x012
+keybind = cmd+digit3=text:\x013
+keybind = cmd+digit4=text:\x014
+keybind = cmd+digit5=text:\x015
+keybind = cmd+digit6=text:\x016
+keybind = cmd+digit7=text:\x017
+keybind = cmd+digit8=text:\x018
+keybind = cmd+digit9=text:\x019
+
+
+keybind = shift+enter=text:\n

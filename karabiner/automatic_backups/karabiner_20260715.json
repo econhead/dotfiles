@@ -42,19 +42,6 @@
                         "vendor_id": 13652
                     },
                     "ignore": false
-                },
-                {
-                    "identifiers": {
-                        "is_keyboard": true,
-                        "product_id": 641,
-                        "vendor_id": 1452
-                    },
-                    "simple_modifications": [
-                        {
-                            "from": { "key_code": "right_option" },
-                            "to": [{ "pointing_button": "button2" }]
-                        }
-                    ]
                 }
             ],
             "name": "Default profile",

@@ -61,12 +61,12 @@ on-focus-changed = "move-mouse window-lazy-center"
 #                 Monitor pattern is the same as for 'workspace-to-monitor-force-assignment'.
 #                 See: https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 [gaps]
-inner.horizontal = 7  
-inner.vertical =   7  
-outer.left =       7
-outer.right =      7
-outer.top =        5
-outer.bottom =     5
+inner.horizontal = 10 
+inner.vertical =   10 
+outer.left =       10
+outer.right =      10
+outer.top =        10
+outer.bottom =     10
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -94,19 +94,18 @@ outer.bottom =     5
 
 # App shortcuts
 alt-b = 'exec-and-forget open -a Safari'
-alt-g = 'exec-and-forget open -a /Applications/ChatGPT.app'
-alt-t = 'exec-and-forget open -a /Applications/WezTerm.app'
+alt-t = 'exec-and-forget open -a /Applications/Ghostty.app/'
 alt-i = 'exec-and-forget open -a /Applications/Inkscape.app'
 alt-w = 'exec-and-forget open -a /Applications/WhatsApp.app'
-alt-z = 'exec-and-forget open -a /Applications/Zen.app'
-alt-p = 'exec-and-forget open -a /Applications/sioyek.app'
-alt-s = 'exec-and-forget open -a /Applications/Spotify.app'
+alt-s = 'exec-and-forget open -a /Applications/sioyek.app'
 alt-f = 'exec-and-forget open -a Finder'
 alt-a = 'exec-and-forget open -a "/System/Applications/Utilities/Activity Monitor.app"'
-alt-c = 'exec-and-forget open -a /Applications/Visual Studio Code.app'
+alt-c = 'exec-and-forget open -a "ChatGPT Classic"' 
+alt-o = 'exec-and-forget open -a /Applications/ChatGPT.app'
 alt-d = 'exec-and-forget open -a /Applications/Discord.app' 
-alt-m = 'exec-and-forget open -a /Applications/Kaset.app/'
-
+alt-u = 'exec-and-forget open -a /Applications/Kaset.app/'
+alt-m = 'exec-and-forget open -a Mail'
+alt-p = 'exec-and-forget open -a Passwords'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#layout
 alt-slash = 'layout tiles horizontal vertical'
@@ -199,7 +198,7 @@ if.app-id = 'com.apple.Safari'
 run = "move-node-to-workspace 1"
 
 [[on-window-detected]]
-if.app-id = 'com.github.wez.wezterm'
+if.app-id = 'com.mitchellh.ghostty' 
 run = "move-node-to-workspace 2"
 
 [[on-window-detected]]
@@ -296,7 +295,7 @@ run = "layout floating"
 
 [[on-window-detected]]
 if.app-id = 'com.hnc.Discord'
-run = "move-node-to-workspace 9"
+run = "layout floating"
 
 [[on-window-detected]]
 if.app-id = 'org.qbittorrent.qBittorrent'
@@ -312,4 +311,9 @@ run = "layout floating"
 
 [[on-window-detected]]
 if.app-id = 'com.sertacozercan.Kaset'
-run = "move-node-to-workspace 0"
+run = "layout floating"
+
+[[on-window-detected]]
+if.app-id = 'com.apple.Passwords'
+run = "layout floating"
+

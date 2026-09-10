@@ -1,11 +1,12 @@
 local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
-config.font = wezterm.font("JetBrains Mono", { weight = "Light", italic = false })
-config.font_size = 17
+-- config.font = wezterm.font("JetBrains Mono", { weight = "ExtraLight", italic = true })
+config.font = wezterm.font("Comic Mono", { weight = "Medium", italic = false })
+config.font_size = 14.5
 config.enable_tab_bar = false
 config.window_decorations = "RESIZE"
-config.window_background_opacity = 0.97
+config.window_background_opacity = 1
 config.macos_window_background_blur = 30
 config.prefer_egl = true
 config.window_padding = {
@@ -22,5 +23,8 @@ config.max_fps = 144
 config.default_cursor_style = "BlinkingBlock"
 config.animation_fps = 1
 config.cursor_blink_rate = 500
-config.colors = require("ashen")
+config.color_scheme = "Catppuccin Mocha"
+config.colors = {
+	background = "#14161b",
+}
 return config

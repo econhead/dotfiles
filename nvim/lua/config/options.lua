@@ -1,6 +1,7 @@
 local opt = vim.opt
 
 -- Interface
+opt.mouse = ""
 opt.number = true
 opt.relativenumber = true
 opt.cursorline = true

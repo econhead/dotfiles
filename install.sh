@@ -12,5 +12,6 @@ ln -sfn ~/dotfiles/karabiner ~/.config/karabiner
 ln -sfn ~/dotfiles/tmux ~/.config/tmux
 ln -sfn ~/dotfiles/nvim ~/.config/nvim
 ln -sfn ~/dotfiles/zsh/.zshrc ~/.zshrc
+ln -sfn ~/dotfiles/ghostty ~/.config/ghostty
 
 echo "Dotfiles setup complete!"
