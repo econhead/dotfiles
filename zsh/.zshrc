@@ -42,6 +42,5 @@ alias eza="eza --color=always --long --git --no-filesize --icons=always --no-tim
 eval "$(zoxide init zsh)"
 
 alias cd='z'
-alias python=python3
-alias pip=pip3
 
+export PATH="/opt/homebrew/opt/python@3.14/libexec/bin:$PATH"
