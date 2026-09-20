@@ -44,10 +44,9 @@ set recolor-keephue             true                 # keep original color
 
 set statusbar-h-padding 0
 set statusbar-v-padding 0
-set page-padding 1
 map u scroll half-up
 map d scroll half-down
-map D toggle_page_mode
+map @ toggle_page_mode
 map r reload
 map R rotate
 map K zoom in
@@ -58,7 +57,7 @@ map i recolor
 set synctex                      true
 set synctex-editor-command       "nvim --headless -c "VimtexInverseSearch %l '%f'""
 set synctex-edit-modifier        shift
-set font                         "monospace 13"
+set font                         "Comic Mono 7"
 map p print
 
 

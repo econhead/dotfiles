@@ -13,5 +13,10 @@ ln -sfn ~/.dotfiles/tmux ~/.config/tmux
 ln -sfn ~/.dotfiles/nvim ~/.config/nvim
 # ln -sfn ~/.dotfiles/zsh/.zshrc ~/.zshrc
 ln -sfn ~/.dotfiles/ghostty ~/.config/ghostty
-
+ln -sfn ~/.dotfiles/kitty ~/.config/kitty
+ln -sfn ~/.dotfiles/hypr ~/.config/hypr
+ln -sfn ~/.dotfiles/fastfetch ~/.config/fastfetch
+ln -sfn ~/.dotfiles/sioyek ~/.config/sioyek
+ln -sfn ~/.dotfiles/xremap ~/.config/xremap
+ln -sfn ~/.dotfiles/bash/.bashrc ~/.bashrc
 echo "Dotfiles setup complete!"
