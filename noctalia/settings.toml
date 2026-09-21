@@ -1,0 +1,266 @@
+config_version = 14
+
+[bar]
+order = [ "default" ]
+
+    [bar.default]
+    background_opacity = 0.32999999262392521
+    border = "primary"
+    border_width = 1.0
+    capsule_radius = 10
+    concave_edge_corners = false
+    end = [
+        "bar",
+        "cpu",
+        "ram",
+        "battery",
+        "wallpaper",
+        "clipboard",
+        "notifications",
+        "bluetooth",
+        "volume",
+        "network",
+        "session"
+    ]
+    font_weight = 400
+    margin_edge = 4
+    margin_ends = 40
+    position = "left"
+    start = [ "launcher", "control-center", "workspaces", "media" ]
+    thickness = 30
+    widget_spacing = 8
+
+        [bar.default.dead_zone.actions]
+        back = "bar-show"
+
+[battery]
+warning_threshold = 25
+
+[control_center]
+sidebar = "full"
+sidebar_section = "full"
+
+[desktop_widgets]
+schema_version = 2
+widget_order = []
+
+    [desktop_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [desktop_widgets.widget]
+
+[dock]
+active_scale = 1.2500000186264515
+auto_hide = true
+background_opacity = 0.59999998658895493
+border = "primary"
+border_width = 1.0
+enabled = true
+icon_size = 28
+inactive_scale = 1.0
+item_spacing = 4
+magnification_scale = 1.5500000081956387
+margin_edge = 10
+pinned = [ "kitty", "org.mozilla.firefox", "org.pwmt.zathura", "sioyek", "chatgpt" ]
+reserve_space = false
+show_dots = true
+
+[idle]
+behavior_order = [ "screen-off", "lock", "lock-and-suspend" ]
+enabled = true
+
+    [idle.behavior.lock]
+    action = "lock"
+    enabled = true
+    timeout = 600.0
+
+    [idle.behavior.lock-and-suspend]
+    action = "lock_and_suspend"
+    enabled = true
+    timeout = 900.0
+
+    [idle.behavior.screen-off]
+    action = "screen_off"
+    enabled = true
+    timeout = 300.0
+
+[location]
+auto_locate = true
+
+[lockscreen_widgets]
+enabled = true
+schema_version = 2
+widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-widget-0000000000000001", "lockscreen-widget-0000000000000002" ]
+
+    [lockscreen_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
+    box_height = 196.0
+    box_width = 810.0
+    cx = 800.46868896484375
+    cy = 829.4283447265625
+    output = "eDP-1"
+    placement_height = 1000.0
+    placement_width = 1600.0
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@eDP-1".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000001]
+    box_height = 96.0
+    box_width = 384.0
+    cx = 800.0
+    cy = 292.0
+    output = "eDP-1"
+    placement_height = 1000.0
+    placement_width = 1600.0
+    rotation = 0.0
+    type = "clock"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000001.settings]
+        background = false
+        background_color = "on_tertiary"
+        clock_style = "digital"
+        format = "{:%H:%M:%S}"
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000002]
+    box_height = 0.0
+    box_width = 0.0
+    cx = 800.0
+    cy = 500.0
+    output = "eDP-1"
+    placement_height = 1000.0
+    placement_width = 1600.0
+    rotation = 0.0
+    type = "fancy_audio_visualizer"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000002.settings]
+        background = false
+        primary_color = "on_primary"
+        secondary_color = "on_tertiary"
+
+[osd]
+background_opacity = 0.4999999888241291
+
+    [osd.kinds]
+    media = false
+
+[plugin_settings."icefish/phone-connect"]
+battery_display = "hidden"
+panel_placement = "floating"
+
+[plugin_settings."yngwe/wallpaperCarousel"]
+wallpaperDirectory = "/home/econhead/Pictures/wallpapers/anime"
+
+[plugins]
+enabled = [ "icefish/phone-connect", "yngwe/wallpaperCarousel" ]
+
+[shell]
+font_family = "Comic Mono"
+panel_anchor_bar = "default"
+screen_time_enabled = true
+
+    [shell.panel]
+    control_center_placement = "floating"
+    control_center_position = "center"
+    open_near_click_control_center = true
+    open_near_click_wallpaper = true
+    session_placement = "floating"
+    session_position = "center"
+    transparency_mode = "glass"
+
+    [shell.screen_corners]
+    enabled = true
+    size = 10
+
+    [shell.session]
+    grid_columns = 5
+
+[theme]
+builtin = "Ayu"
+community_palette = "Gruvbox Material Hard"
+mode = "dark"
+source = "wallpaper"
+wallpaper_scheme = "m3-content"
+
+    [theme.templates]
+    builtin_ids = [ "btop", "gtk3", "gtk4", "hyprland", "kcolorscheme", "kitty", "qt" ]
+    community_ids = [ "rofi" ]
+
+[wallpaper.default]
+path = "/home/econhead/Pictures/wallpapers/anime/classroom.jpg"
+
+[wallpaper.last]
+path = "/home/econhead/Pictures/wallpapers/anime/classroom.jpg"
+
+[wallpaper.monitors.eDP-1]
+path = "/home/econhead/Pictures/wallpapers/anime/classroom.jpg"
+
+[[wallpaper.favorite]]
+community_palette = "Gruvbox Material Hard"
+palette_source = "community"
+path = "/home/econhead/Pictures/wallpapers/wallpapers/share/aenami/yy18rzbp9nn01.jpg"
+theme_mode = "auto"
+
+[widget.bar]
+color = "primary"
+font_scale = 1.1500000000000001
+icon_color = "primary"
+scale = 1.1500000000000001
+type = "icefish/phone-connect:bar"
+
+[widget.clock]
+anchor = true
+format = "{:%H:%M:%S}"
+
+[widget.control-center]
+font_scale = 1.3400000000000001
+glyph = "function"
+icon_color = "secondary"
+scale = 1.5
+
+[widget.launcher]
+enabled = false
+
+[widget.media]
+art_size = 25
+
+[widget.network]
+show_label = false
+
+[widget.ram]
+font_scale = 0.90000000000000002
+label_show_units = false
+
+[widget.session]
+icon_color = "error"
+scale = 1.2000000000000002
+
+[widget.tray]
+enabled = false
+
+[widget.volume]
+show_label = false
+
+[widget.wallpaper]
+enabled = false

@@ -12,7 +12,7 @@
 "display": {
     "separator": ": ",
     "key": {
-        "width": 10
+        "width": 9
     }
 },
        "modules": [
