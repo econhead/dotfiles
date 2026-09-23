@@ -76,11 +76,7 @@
             "type": "disk",
             "key": "Disk"
         },
-        {
-            "type": "battery",
-            "key": "Battery"
-        },
-
+        
         "break",
         // "colors"
     ]

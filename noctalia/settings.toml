@@ -23,9 +23,8 @@ order = [ "default" ]
         "session"
     ]
     font_weight = 400
-    margin_edge = 4
-    margin_ends = 40
-    position = "left"
+    margin_ends = 10
+    position = "bottom"
     start = [ "launcher", "control-center", "workspaces", "media" ]
     thickness = 30
     widget_spacing = 8
@@ -73,21 +72,25 @@ enabled = true
 
     [idle.behavior.lock]
     action = "lock"
-    enabled = true
+    enabled = false
     timeout = 600.0
 
     [idle.behavior.lock-and-suspend]
     action = "lock_and_suspend"
-    enabled = true
+    enabled = false
     timeout = 900.0
 
     [idle.behavior.screen-off]
     action = "screen_off"
-    enabled = true
+    enabled = false
     timeout = 300.0
 
 [location]
 auto_locate = true
+
+[lockscreen]
+blur_intensity = 0.099999997764825821
+tint_intensity = 0.4999999888241291
 
 [lockscreen_widgets]
 enabled = true
@@ -95,15 +98,15 @@ schema_version = 2
 widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-widget-0000000000000001", "lockscreen-widget-0000000000000002" ]
 
     [lockscreen_widgets.grid]
-    cell_size = 16
+    cell_size = 24
     major_interval = 4
     visible = true
 
     [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
     box_height = 196.0
-    box_width = 810.0
-    cx = 800.46868896484375
-    cy = 829.4283447265625
+    box_width = 720.0
+    cx = 800.0
+    cy = 818.0
     output = "eDP-1"
     placement_height = 1000.0
     placement_width = 1600.0
@@ -127,10 +130,10 @@ widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-widget-00000000000000
         show_weather = true
 
     [lockscreen_widgets.widget.lockscreen-widget-0000000000000001]
-    box_height = 96.0
-    box_width = 384.0
+    box_height = 320.0
+    box_width = 688.0
     cx = 800.0
-    cy = 292.0
+    cy = 372.0
     output = "eDP-1"
     placement_height = 1000.0
     placement_width = 1600.0
@@ -144,20 +147,21 @@ widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-widget-00000000000000
         format = "{:%H:%M:%S}"
 
     [lockscreen_widgets.widget.lockscreen-widget-0000000000000002]
-    box_height = 0.0
-    box_width = 0.0
+    box_height = 112.0
+    box_width = 496.0
     cx = 800.0
-    cy = 500.0
+    cy = 572.0
     output = "eDP-1"
     placement_height = 1000.0
     placement_width = 1600.0
     rotation = 0.0
-    type = "fancy_audio_visualizer"
+    type = "audio_visualizer"
 
         [lockscreen_widgets.widget.lockscreen-widget-0000000000000002.settings]
         background = false
-        primary_color = "on_primary"
-        secondary_color = "on_tertiary"
+        bands = 32
+        color_1 = "tertiary"
+        show_when_idle = true
 
 [osd]
 background_opacity = 0.4999999888241291
@@ -170,7 +174,7 @@ battery_display = "hidden"
 panel_placement = "floating"
 
 [plugin_settings."yngwe/wallpaperCarousel"]
-wallpaperDirectory = "/home/econhead/Pictures/wallpapers/anime"
+wallpaperDirectory = "/home/econhead/Pictures/wallpapers/aenami"
 
 [plugins]
 enabled = [ "icefish/phone-connect", "yngwe/wallpaperCarousel" ]
@@ -179,6 +183,13 @@ enabled = [ "icefish/phone-connect", "yngwe/wallpaperCarousel" ]
 font_family = "Comic Mono"
 panel_anchor_bar = "default"
 screen_time_enabled = true
+
+    [shell.launcher]
+    categories = false
+    show_app_origin_indicator = false
+
+        [shell.launcher.providers.emoji]
+        global = false
 
     [shell.panel]
     control_center_placement = "floating"
@@ -193,33 +204,34 @@ screen_time_enabled = true
     enabled = true
     size = 10
 
+    [shell.screenshot]
+    freeze_screen = false
+
     [shell.session]
     grid_columns = 5
 
 [theme]
 builtin = "Ayu"
 community_palette = "Gruvbox Material Hard"
-mode = "dark"
+mode = "auto"
 source = "wallpaper"
-wallpaper_scheme = "m3-content"
+wallpaper_scheme = "m3-tonal-spot"
 
     [theme.templates]
     builtin_ids = [ "btop", "gtk3", "gtk4", "hyprland", "kcolorscheme", "kitty", "qt" ]
     community_ids = [ "rofi" ]
 
 [wallpaper.default]
-path = "/home/econhead/Pictures/wallpapers/anime/classroom.jpg"
+path = "/home/econhead/Pictures/wallpapers/aenami/ChatGPT Image Sep 23, 2026, 09_36_11 PM.png"
 
 [wallpaper.last]
-path = "/home/econhead/Pictures/wallpapers/anime/classroom.jpg"
+path = "/home/econhead/Pictures/wallpapers/aenami/ChatGPT Image Sep 23, 2026, 09_36_11 PM.png"
 
 [wallpaper.monitors.eDP-1]
-path = "/home/econhead/Pictures/wallpapers/anime/classroom.jpg"
+path = "/home/econhead/Pictures/wallpapers/aenami/ChatGPT Image Sep 23, 2026, 09_36_11 PM.png"
 
 [[wallpaper.favorite]]
-community_palette = "Gruvbox Material Hard"
-palette_source = "community"
-path = "/home/econhead/Pictures/wallpapers/wallpapers/share/aenami/yy18rzbp9nn01.jpg"
+path = "/home/econhead/Pictures/Camera/Photos/picture_2026-09-18_09-22-28.jpg"
 theme_mode = "auto"
 
 [widget.bar]
@@ -238,9 +250,6 @@ font_scale = 1.3400000000000001
 glyph = "function"
 icon_color = "secondary"
 scale = 1.5
-
-[widget.launcher]
-enabled = false
 
 [widget.media]
 art_size = 25
@@ -261,6 +270,3 @@ enabled = false
 
 [widget.volume]
 show_label = false
-
-[widget.wallpaper]
-enabled = false

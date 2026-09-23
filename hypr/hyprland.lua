@@ -85,10 +85,10 @@ hl.env("QT_QPA_PLATFORMTHEME", "hyprqt6engine")
 -- Refer to https://wiki.hypr.land/Configuring/Basics/Variables/
 hl.config({
   general = {
-    gaps_in          = 5,
-    gaps_out         = 40,
+    gaps_in          = 3,
+    gaps_out         = 10,
 
-    border_size      = 2,
+    border_size      = 1,
 
     col              = {
       active_border   = { colors = { "rgba(33ccffee)", "rgba(00ff99ee)" }, angle = 45 },
@@ -121,7 +121,7 @@ hl.config({
 
     blur             = {
       enabled  = true,
-      size     = 8,
+      size     = 7,
       passes   = 3,
       vibrancy = 0.1696,
     },
@@ -225,7 +225,7 @@ hl.config({
 
     follow_mouse = 1,
 
-    sensitivity  = 0, -- -1.0 - 1.0, 0 means no modification.
+    sensitivity  = 0.5, -- -1.0 - 1.0, 0 means no modification.
 
     touchpad     = {
       natural_scroll = false,
@@ -252,6 +252,7 @@ hl.device({
 ---------------------
 
 local mainMod = "ALT" -- Sets "Windows" key as main modifier
+
 
 hl.bind(
   mainMod .. " + SHIFT+ Q",
@@ -321,7 +322,6 @@ hl.bind(
   mainMod .. " + G",
   hl.dsp.exec_cmd("/usr/bin/chatgpt --ozone-platform=wayland")
 )
-hl.bind(mainMod .. " + I", hl.dsp.exec_cmd("inkscape"))
 hl.bind(mainMod .. " + w", hl.dsp.exec_cmd("noctalia msg plugin yngwe/wallpaperCarousel:service all toggle"))
 -- Switch workspaces with mainMod + [0-9]
 -- Move active window to a workspace with mainMod + SHIFT + [0-9]
@@ -439,7 +439,7 @@ hl.window_rule({
   match = {
     class = "^Inkscape$",
   },
-  workspace = "3",
+  workspace = "7",
 })
 
 hl.window_rule({
@@ -447,7 +447,7 @@ hl.window_rule({
   match = {
     class = "^org\\.inkscape\\.Inkscape$",
   },
-  workspace = "3",
+  workspace = "7",
 })
 
 
@@ -461,12 +461,25 @@ hl.config({
   },
 })
 
-for i = 1, 9 do
+for i = 0, 9 do
   hl.workspace_rule({
     workspace = tostring(i),
     persistent = true,
   })
 end
+
+hl.window_rule({
+  name = "bitwarden master popup",
+  match = { class = "chrome-nngceckbapebfimnlniiiahkandclblb-Default" },
+  float = true,
+  center = true,
+})
+hl.window_rule({
+  name = "Windscribe",
+  match = { class = "Windscribe" },
+  float = true,
+  center = true,
+})
 
 -- HyprMod managed settings
 require("hyprland-gui")

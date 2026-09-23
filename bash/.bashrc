@@ -30,18 +30,19 @@ case ":$PATH:" in
 esac
 export PATH="$HOME/.cargo/bin:$PATH"
 
+
+# # Show Fastfetch only in interactive shells, outside tmux
+# if [[ $- == *i* && -z "$TMUX" ]]; then
+#     fastfetch
+# fi
+
 alias vim='nvim'
-
-# Show Fastfetch only in interactive shells, outside tmux
-if [[ $- == *i* && -z "$TMUX" ]]; then
-    fastfetch
-fi
-
-alias l='eza --icons'
+alias ls='eza --icons'
 alias ll='eza -lah --icons --git'
 alias lt='eza --tree --level=2 --icons=auto'
 
 alias ff='fastfetch'
+alias top='btop'
 
 eval "$(starship init bash)"
 eval "$(zoxide init bash)"
