@@ -10,12 +10,12 @@ order = [ "default" ]
     capsule_radius = 10
     concave_edge_corners = false
     end = [
-        "bar",
         "cpu",
         "ram",
+        "bar",
+        "clipboard",
         "battery",
         "wallpaper",
-        "clipboard",
         "notifications",
         "bluetooth",
         "volume",
@@ -23,8 +23,8 @@ order = [ "default" ]
         "session"
     ]
     font_weight = 400
-    margin_ends = 10
-    position = "bottom"
+    margin_edge = 4
+    margin_ends = 200
     start = [ "launcher", "control-center", "workspaces", "media" ]
     thickness = 30
     widget_spacing = 8
@@ -213,22 +213,21 @@ screen_time_enabled = true
 [theme]
 builtin = "Ayu"
 community_palette = "Gruvbox Material Hard"
-mode = "auto"
 source = "wallpaper"
 wallpaper_scheme = "m3-tonal-spot"
 
     [theme.templates]
     builtin_ids = [ "btop", "gtk3", "gtk4", "hyprland", "kcolorscheme", "kitty", "qt" ]
-    community_ids = [ "rofi" ]
+    community_ids = [ "discord" ]
 
 [wallpaper.default]
-path = "/home/econhead/Pictures/wallpapers/aenami/ChatGPT Image Sep 23, 2026, 09_36_11 PM.png"
+path = "/home/econhead/Pictures/wallpapers/aenami/ChatGPT Image Sep 23, 2026, 09_34_06 PM.png"
 
 [wallpaper.last]
-path = "/home/econhead/Pictures/wallpapers/aenami/ChatGPT Image Sep 23, 2026, 09_36_11 PM.png"
+path = "/home/econhead/Pictures/wallpapers/aenami/ChatGPT Image Sep 23, 2026, 09_34_06 PM.png"
 
 [wallpaper.monitors.eDP-1]
-path = "/home/econhead/Pictures/wallpapers/aenami/ChatGPT Image Sep 23, 2026, 09_36_11 PM.png"
+path = "/home/econhead/Pictures/wallpapers/aenami/ChatGPT Image Sep 23, 2026, 09_34_06 PM.png"
 
 [[wallpaper.favorite]]
 path = "/home/econhead/Pictures/Camera/Photos/picture_2026-09-18_09-22-28.jpg"
@@ -241,6 +240,9 @@ icon_color = "primary"
 scale = 1.1500000000000001
 type = "icefish/phone-connect:bar"
 
+[widget.bluetooth]
+enabled = false
+
 [widget.clock]
 anchor = true
 format = "{:%H:%M:%S}"
@@ -251,15 +253,21 @@ glyph = "function"
 icon_color = "secondary"
 scale = 1.5
 
+[widget.launcher]
+enabled = false
+
 [widget.media]
 art_size = 25
 
 [widget.network]
+enabled = false
 show_label = false
+
+[widget.notifications]
+enabled = false
 
 [widget.ram]
 font_scale = 0.90000000000000002
-label_show_units = false
 
 [widget.session]
 icon_color = "error"
@@ -269,4 +277,12 @@ scale = 1.2000000000000002
 enabled = false
 
 [widget.volume]
+enabled = false
 show_label = false
+
+[widget.wallpaper]
+enabled = false
+
+[widget.workspaces]
+hide_when_empty = true
+max_label_chars = 2
