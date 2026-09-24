@@ -20,6 +20,6 @@ ln -sfn ~/.dotfiles/sioyek ~/.config/sioyek
 ln -sfn ~/.dotfiles/xremap ~/.config/xremap
 ln -sfn ~/.dotfiles/bash/.bashrc ~/.bashrc
 ln -sfn ~/.dotfiles/noctalia/settings.toml ~/.local/state/noctalia/settings.toml
-
+ln -sfn ~/.dotfiles/qutebrowser ~/.config/qutebrowser
 
 echo "Dotfiles setup complete!"

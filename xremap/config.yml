@@ -1,33 +1,25 @@
 modmap:
-  - name: Right Command -> Ctrl+Shift+Left Click
-    remap:
-      KEY_RIGHTMETA:
-        skip_key_event: true
-        press:
-          - { press: KEY_LEFTCTRL }
-          - { press: KEY_LEFTSHIFT }
-          - { press: BTN_LEFT }
-          - { release: BTN_LEFT }
-          - { release: KEY_LEFTSHIFT }
-          - { release: KEY_LEFTCTRL }
-
-  - name: Right Control -> Ctrl+Shift+Left Click
-    remap:
-      KEY_RIGHTCTRL:
-        skip_key_event: true
-        press:
-          - { press: KEY_LEFTCTRL }
-          - { press: KEY_LEFTSHIFT }
-          - { press: BTN_LEFT }
-          - { release: BTN_LEFT }
-          - { release: KEY_LEFTSHIFT }
-          - { release: KEY_LEFTCTRL }
-
   - name: CapsLock -> Ctrl when held, Esc when tapped
     remap:
       KEY_CAPSLOCK:
         held: KEY_LEFTCTRL
         alone: KEY_ESC
         alone_timeout_millis: 200
-  
 
+  - name: Right Command -> Right Click
+    remap:
+      KEY_RIGHTMETA:
+        skip_key_event: true
+        press:
+          - { press: BTN_RIGHT }
+        release:
+          - { release: BTN_RIGHT }
+
+  - name: Right Control -> Right Click
+    remap:
+      KEY_RIGHTCTRL:
+        skip_key_event: true
+        press:
+          - { press: BTN_RIGHT }
+        release:
+          - { release: BTN_RIGHT }

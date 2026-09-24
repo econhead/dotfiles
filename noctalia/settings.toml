@@ -24,7 +24,8 @@ order = [ "default" ]
     ]
     font_weight = 400
     margin_edge = 4
-    margin_ends = 200
+    margin_ends = 40
+    position = "left"
     start = [ "launcher", "control-center", "workspaces", "media" ]
     thickness = 30
     widget_spacing = 8
@@ -62,7 +63,7 @@ inactive_scale = 1.0
 item_spacing = 4
 magnification_scale = 1.5500000081956387
 margin_edge = 10
-pinned = [ "kitty", "org.mozilla.firefox", "org.pwmt.zathura", "sioyek", "chatgpt" ]
+pinned = [ "kitty", "org.mozilla.firefox", "org.pwmt.zathura", "sioyek" ]
 reserve_space = false
 show_dots = true
 
@@ -218,16 +219,16 @@ wallpaper_scheme = "m3-tonal-spot"
 
     [theme.templates]
     builtin_ids = [ "btop", "gtk3", "gtk4", "hyprland", "kcolorscheme", "kitty", "qt" ]
-    community_ids = [ "discord" ]
+    community_ids = [ "qutebrowser", "discord" ]
 
 [wallpaper.default]
-path = "/home/econhead/Pictures/wallpapers/aenami/ChatGPT Image Sep 23, 2026, 09_34_06 PM.png"
+path = "/home/econhead/Pictures/wallpapers/aenami/5m5kLI9.png"
 
 [wallpaper.last]
-path = "/home/econhead/Pictures/wallpapers/aenami/ChatGPT Image Sep 23, 2026, 09_34_06 PM.png"
+path = "/home/econhead/Pictures/wallpapers/aenami/5m5kLI9.png"
 
 [wallpaper.monitors.eDP-1]
-path = "/home/econhead/Pictures/wallpapers/aenami/ChatGPT Image Sep 23, 2026, 09_34_06 PM.png"
+path = "/home/econhead/Pictures/wallpapers/aenami/5m5kLI9.png"
 
 [[wallpaper.favorite]]
 path = "/home/econhead/Pictures/Camera/Photos/picture_2026-09-18_09-22-28.jpg"
@@ -268,6 +269,7 @@ enabled = false
 
 [widget.ram]
 font_scale = 0.90000000000000002
+label_show_units = false
 
 [widget.session]
 icon_color = "error"
@@ -284,5 +286,4 @@ show_label = false
 enabled = false
 
 [widget.workspaces]
-hide_when_empty = true
 max_label_chars = 2

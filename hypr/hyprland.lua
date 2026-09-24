@@ -86,7 +86,7 @@ hl.env("QT_QPA_PLATFORMTHEME", "hyprqt6engine")
 hl.config({
   general = {
     gaps_in          = 3,
-    gaps_out         = 10,
+    gaps_out         = { top = 40, right = 40, bottom = 40, left = 40, },
 
     border_size      = 1,
 
@@ -96,7 +96,7 @@ hl.config({
     },
 
     -- Set to true to enable resizing windows by clicking and dragging on borders and gaps
-    resize_on_border = false,
+    resize_on_border = true,
 
     -- Please see https://wiki.hypr.land/Configuring/Advanced-and-Cool/Tearing/ before you turn this on
     allow_tearing    = false,
@@ -277,14 +277,20 @@ hl.bind(
 )
 
 hl.bind(
-  mainMod .. "+ SHIFT + X",
+  mainMod .. " + X",
   hl.dsp.exec_cmd("noctalia msg settings-toggle")
 )
 
 hl.bind(
-  mainMod .. "+ SHIFT + Z",
+  mainMod .. " + Z",
   hl.dsp.exec_cmd("noctalia msg panel-toggle control-center")
 )
+
+hl.bind(
+  mainMod .. " + S",
+  hl.dsp.exec_cmd("/home/econhead/.local/bin/sioyek --new-window")
+)
+
 -- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
 hl.bind(mainMod .. " + T", hl.dsp.exec_cmd(terminal))
 local closeWindowBind = hl.bind(mainMod .. " + C", hl.dsp.window.close())
@@ -317,7 +323,7 @@ hl.bind(mainMod .. " + SHIFT + J", hl.dsp.window.swap({ direction = "down" }))
 hl.bind(mainMod .. "+ TAB", hl.dsp.focus({ workspace = "e+1" }))
 hl.bind(mainMod .. "+ SHIFT + TAB", hl.dsp.focus({ workspace = "e-1" }))
 -- App shortcuts
-hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("helium"))
+hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("/home/econhead/.local/bin/qutebrowser"))
 hl.bind(
   mainMod .. " + G",
   hl.dsp.exec_cmd("/usr/bin/chatgpt --ozone-platform=wayland")
@@ -332,7 +338,7 @@ for i = 1, 10 do
 end
 
 -- Example special workspace (scratchpad)
-hl.bind(mainMod .. " + S", hl.dsp.workspace.toggle_special("magic"))
+hl.bind(mainMod .. " +CTRL + S", hl.dsp.workspace.toggle_special("magic"))
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
 
 -- Scroll through existing workspaces with mainMod + scroll
