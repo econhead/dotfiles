@@ -86,7 +86,7 @@ hl.env("QT_QPA_PLATFORMTHEME", "hyprqt6engine")
 hl.config({
   general = {
     gaps_in          = 3,
-    gaps_out         = { top = 40, right = 40, bottom = 40, left = 40, },
+    gaps_out         = { top = 15, right = 40, bottom = 35, left = 40, },
 
     border_size      = 1,
 
@@ -253,6 +253,11 @@ hl.device({
 
 local mainMod = "ALT" -- Sets "Windows" key as main modifier
 
+-- Noctalia
+hl.bind(
+  mainMod .. " + SHIFT + B",
+  hl.dsp.exec_cmd("noctalia msg bar-toggle")
+)
 
 hl.bind(
   mainMod .. " + SHIFT+ Q",
@@ -260,8 +265,8 @@ hl.bind(
 )
 
 hl.bind(
-  mainMod .. " + SHIFT + P",
-  hl.dsp.exec_cmd([[grim -g "$(slurp)" - | wl-copy]])
+  mainMod .. " + SHIFT + A",
+  hl.dsp.exec_cmd("noctalia msg screenshot-fullscreen")
 )
 
 hl.bind(
@@ -270,7 +275,16 @@ hl.bind(
     [[mkdir -p ~/Pictures/Screenshots && grim -g "$(slurp)" ~/Pictures/Screenshots/$(date +'%Y-%m-%d_%H-%M-%S').png]])
 )
 
--- Noctalia
+hl.bind(
+  mainMod .. " + SHIFT + P",
+  hl.dsp.exec_cmd("noctalia msg screenshot-annotate")
+)
+
+hl.bind(
+  mainMod .. " + A",
+  hl.dsp.exec_cmd("noctalia msg screenshot-region")
+)
+
 hl.bind(
   mainMod .. " + Q",
   hl.dsp.exec_cmd("noctalia msg session lock")
@@ -285,6 +299,12 @@ hl.bind(
   mainMod .. " + Z",
   hl.dsp.exec_cmd("noctalia msg panel-toggle control-center")
 )
+
+hl.bind(
+  mainMod .. " + SHIFT + z",
+  hl.dsp.exec_cmd("noctalia msg panel-toggle session")
+)
+
 
 hl.bind(
   mainMod .. " + S",
@@ -441,6 +461,14 @@ hl.window_rule({
 })
 
 hl.window_rule({
+  name = "bitwarden password manager",
+  match = {
+    class = "bitwarden", },
+  float = true,
+  center = true,
+})
+
+hl.window_rule({
   name = "inkscape-x11-workspace",
   match = {
     class = "^Inkscape$",
@@ -458,7 +486,8 @@ hl.window_rule({
 
 
 hl.on("hyprland.start", function()
-  hl.exec_cmd("noctalia")
+  hl.exec_cmd("/home/econhead/.local/bin/noctalia-launch")
+  hl.exec_cmd("systemctl --user start hyprpolkitagent.service")
 end)
 
 hl.config({
@@ -486,9 +515,36 @@ hl.window_rule({
   float = true,
   center = true,
 })
+hl.layer_rule({
+
+  name = "noctalia",
+
+  match = {
+
+    namespace = "^noctalia-(bar-.+|notification|dock|panel|attached-panel|osd|window-switcher)$",
+
+  },
+
+  no_anim = true,
+
+  ignore_alpha = 0.5,
+
+  blur = true,
+
+  blur_popups = true,
+
+})
+
+hl.window_rule {
+  match = {
+    class = "^org.qutebrowser.qutebrowser$",
+  },
+  opacity = 0.90,
+}
 
 -- HyprMod managed settings
 require("hyprland-gui")
+
 
 
 

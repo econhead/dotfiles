@@ -5,6 +5,13 @@ modmap:
         held: KEY_LEFTCTRL
         alone: KEY_ESC
         alone_timeout_millis: 200
+   
+  - name: Enter -> Alt when held, Enter when tapped
+    remap:
+      KEY_ENTER:
+        held: KEY_LEFTALT
+        alone: KEY_ENTER
+        alone_timeout_millis: 200     
 
   - name: Right Command -> Right Click
     remap:

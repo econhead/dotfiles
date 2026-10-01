@@ -40,9 +40,9 @@ alias vim='nvim'
 alias ls='eza --icons'
 alias ll='eza -lah --icons --git'
 alias lt='eza --tree --level=2 --icons=auto'
-
 alias ff='fastfetch'
 alias top='btop'
 
 eval "$(starship init bash)"
 eval "$(zoxide init bash)"
+export PATH="$HOME/.local/lib/npm/bin:$PATH"

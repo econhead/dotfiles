@@ -3,6 +3,14 @@
 
 config.load_autoconfig()
 
+config.source("noctalia/colors.py")
+c.window.transparent = True
+c.scrolling.bar = "never"
+c.scrolling.smooth = True
+
+c.url.start_pages = ["file:///home/econhead/.config/qutebrowser/startpage/index.html"]
+c.url.default_page = "file:///home/econhead/.config/qutebrowser/startpage/index.html"
+c.statusbar.show = "in-mode"
 # Aliases
 c.aliases = {
     "w": "session-save",
@@ -20,7 +28,14 @@ c.colors.webpage.darkmode.policy.images = "never"
 c.colors.webpage.darkmode.algorithm = "lightness-cielab"
 config.set("colors.webpage.darkmode.enabled", False, "file://*")
 
-config.source("noctalia/colors.py")
+config.set("colors.webpage.darkmode.enabled", False, "https://www.youtube.com/*")
+config.set("colors.webpage.darkmode.enabled", False, "https://github.com/*")
+config.set("colors.webpage.darkmode.enabled", False, "https://chatgpt.com/*")
+config.set(
+    "colors.webpage.darkmode.enabled", False, "https://www.probabilitycourse.com/*"
+)
+config.set("colors.webpage.darkmode.enabled", False, "https://math.stackexchange.com/*")
+
 
 config.bind(
     "<Escape>", "mode-leave ;; jseval -q document.activeElement.blur()", mode="insert"
@@ -48,7 +63,7 @@ c.tabs.pinned.shrink = True
 
 c.tabs.position = "top"
 
-c.url.default_page = "https://www.google.com/"
+# c.url.default_page = "https://www.google.com/"
 
 c.url.searchengines = {
     "DEFAULT": "https://www.google.com/search?hl=en&q={}",
@@ -58,10 +73,14 @@ c.url.searchengines = {
     "!ch": "https://www.chatgpt.com/?q={}",
 }
 
-c.url.start_pages = ["https://www.google.com"]
+# c.url.start_pages = ["https://www.google.com"]
 
 
 ## Bindings for normal mode
+config.bind(
+    "td",
+    "config-cycle colors.webpage.darkmode.enabled true false",
+)
 config.bind(",t", "config-cycle tabs.show always never")
 config.bind(",s", "config-cycle statusbar.show always never")
 config.bind(

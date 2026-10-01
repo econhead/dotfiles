@@ -6,9 +6,18 @@
 
 config_version: 2
 settings:
+  colors.webpage.darkmode.enabled:
+    economics.utoronto.ca: false
+    economics.utoronto.ca/osborne/index.html: false
+    global: true
   content.javascript.clipboard:
     https://chatgpt.com: access-paste
     https://github.com: access-paste
+  content.notifications.enabled:
+    https://calendar.google.com: true
+    https://www.chess.com: true
+  content.register_protocol_handler:
+    https://calendar.google.com?cid=%25s: true
   content.site_specific_quirks.enabled:
     global: true
   statusbar.show:

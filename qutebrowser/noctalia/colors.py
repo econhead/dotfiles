@@ -11,37 +11,37 @@
 # - Outline colors for borders and separators
 
 # Base Surface Colors
-surface = "#19120c"
-surface_dim = "#19120c"
-surface_bright = "#413731"
-surface_container = "#261e18"
-surface_container_low = "#221a14"
-surface_container_lowest = "#140d08"
-surface_container_high = "#312822"
-surface_container_highest = "#3c332c"
-surface_variant = "#51443b"
+surface = "#1a110f"
+surface_dim = "#1a110f"
+surface_bright = "#423733"
+surface_container = "#271d1b"
+surface_container_low = "#231917"
+surface_container_lowest = "#140c0a"
+surface_container_high = "#322825"
+surface_container_highest = "#3d322f"
+surface_variant = "#53433f"
 
 # Foreground Colors
-on_surface = "#efe0d6"
-on_surface_variant = "#d6c3b6"
+on_surface = "#f1dfda"
+on_surface_variant = "#d8c2bc"
 
 # Primary Colors
-primary = "#ffb77b"
-on_primary = "#4c2700"
-primary_container = "#6b3a05"
-on_primary_container = "#ffdcc2"
+primary = "#ffb59e"
+on_primary = "#55200d"
+primary_container = "#723521"
+on_primary_container = "#ffdbd0"
 
 # Secondary Colors
-secondary = "#e3c0a5"
-on_secondary = "#412c19"
-secondary_container = "#5a422e"
-on_secondary_container = "#ffdcc2"
+secondary = "#e7bdb1"
+on_secondary = "#442a22"
+secondary_container = "#5d4037"
+on_secondary_container = "#ffdbd0"
 
 # Tertiary Colors
-tertiary = "#c4cb97"
-on_tertiary = "#2d330d"
-tertiary_container = "#444a22"
-on_tertiary_container = "#e0e7b1"
+tertiary = "#d7c68d"
+on_tertiary = "#3a3005"
+tertiary_container = "#52461a"
+on_tertiary_container = "#f4e2a7"
 
 # Error Colors
 error = "#ffb4ab"
@@ -50,13 +50,13 @@ error_container = "#93000a"
 on_error_container = "#ffdad6"
 
 # Outline Colors
-outline = "#9e8e82"
-outline_variant = "#51443b"
+outline = "#a08d87"
+outline_variant = "#53433f"
 
 # Special Colors
-inverse_surface = "#efe0d6"
-inverse_on_surface = "#382f28"
-inverse_primary = "#88511d"
+inverse_surface = "#f1dfda"
+inverse_on_surface = "#392e2b"
+inverse_primary = "#8f4c36"
 
 # Utility function to convert a #rrggbb hex color to an rgba() string with transparency.
 def hex_to_rgba(hex_color, alpha):

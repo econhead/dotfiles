@@ -4,34 +4,46 @@ config_version = 14
 order = [ "default" ]
 
     [bar.default]
-    background_opacity = 0.32999999262392521
+    background_opacity = 0.0
     border = "primary"
-    border_width = 1.0
-    capsule_radius = 10
+    capsule = true
+    capsule_border = "primary"
+    capsule_opacity = 0.74999998323619366
+    capsule_thickness = 0.87999998405575752
+    center = [ "clock", "bar" ]
     concave_edge_corners = false
-    end = [
-        "cpu",
-        "ram",
-        "bar",
-        "clipboard",
-        "battery",
-        "wallpaper",
-        "notifications",
-        "bluetooth",
-        "volume",
-        "network",
-        "session"
-    ]
+    end = [ "group:g2", "cpu", "ram", "battery", "wallpaper", "session" ]
     font_weight = 400
     margin_edge = 4
-    margin_ends = 40
-    position = "left"
-    start = [ "launcher", "control-center", "workspaces", "media" ]
+    margin_ends = 0
+    start = [ "bar_2", "group:g1", "media" ]
     thickness = 30
     widget_spacing = 8
 
         [bar.default.dead_zone.actions]
         back = "bar-show"
+
+        [[bar.default.capsule_group]]
+        accordion = false
+        accordion_direction = "end"
+        border = "primary"
+        enabled = true
+        fill = "surface_variant"
+        id = "g1"
+        members = [ "control-center", "wallhaven", "workspaces" ]
+        opacity = 0.75
+        padding = 6.0
+
+        [[bar.default.capsule_group]]
+        accordion = false
+        accordion_direction = "end"
+        border = "primary"
+        enabled = true
+        fill = "surface_variant"
+        id = "g2"
+        members = [ "clipboard", "notifications", "bluetooth", "volume", "network" ]
+        opacity = 0.75
+        padding = 6.0
 
 [battery]
 warning_threshold = 25
@@ -174,11 +186,18 @@ background_opacity = 0.4999999888241291
 battery_display = "hidden"
 panel_placement = "floating"
 
+[plugin_settings."noctalia/timer"]
+panel_placement = "floating"
+
+[plugin_settings."noctalia/wallhaven"]
+browser_placement = "floating"
+download_dir = "/home/econhead/Pictures/wallpapers/aenami"
+
 [plugin_settings."yngwe/wallpaperCarousel"]
 wallpaperDirectory = "/home/econhead/Pictures/wallpapers/aenami"
 
 [plugins]
-enabled = [ "icefish/phone-connect", "yngwe/wallpaperCarousel" ]
+enabled = [ "icefish/phone-connect", "yngwe/wallpaperCarousel", "noctalia/bitwarden", "noctalia/timer", "noctalia/wallhaven" ]
 
 [shell]
 font_family = "Comic Mono"
@@ -222,27 +241,24 @@ wallpaper_scheme = "m3-tonal-spot"
     community_ids = [ "qutebrowser", "discord" ]
 
 [wallpaper.default]
-path = "/home/econhead/Pictures/wallpapers/aenami/5m5kLI9.png"
+path = "/home/econhead/Pictures/wallpapers/aenami/classroom.jpg"
 
 [wallpaper.last]
-path = "/home/econhead/Pictures/wallpapers/aenami/5m5kLI9.png"
+path = "/home/econhead/Pictures/wallpapers/aenami/classroom.jpg"
 
 [wallpaper.monitors.eDP-1]
-path = "/home/econhead/Pictures/wallpapers/aenami/5m5kLI9.png"
+path = "/home/econhead/Pictures/wallpapers/aenami/classroom.jpg"
 
 [[wallpaper.favorite]]
 path = "/home/econhead/Pictures/Camera/Photos/picture_2026-09-18_09-22-28.jpg"
 theme_mode = "auto"
 
 [widget.bar]
-color = "primary"
-font_scale = 1.1500000000000001
-icon_color = "primary"
-scale = 1.1500000000000001
-type = "icefish/phone-connect:bar"
+show_idle_on_horizontal = false
+type = "noctalia/timer:bar"
 
-[widget.bluetooth]
-enabled = false
+[widget.bar_2]
+type = "icefish/phone-connect:bar"
 
 [widget.clock]
 anchor = true
@@ -259,17 +275,14 @@ enabled = false
 
 [widget.media]
 art_size = 25
+show_progress = true
+title_scroll = "always"
 
 [widget.network]
-enabled = false
 show_label = false
-
-[widget.notifications]
-enabled = false
 
 [widget.ram]
 font_scale = 0.90000000000000002
-label_show_units = false
 
 [widget.session]
 icon_color = "error"
@@ -279,8 +292,10 @@ scale = 1.2000000000000002
 enabled = false
 
 [widget.volume]
-enabled = false
 show_label = false
+
+[widget.wallhaven]
+type = "noctalia/wallhaven:wallhaven"
 
 [widget.wallpaper]
 enabled = false

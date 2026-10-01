@@ -3,7 +3,7 @@ return {
   lazy = false,
   init = function()
     vim.g.vimtex_view_method = "sioyek"
-    -- vim.g.vimtex_view_sioyek_options = "--reuse-window"
+    vim.g.vimtex_view_sioyek_options = '--execute-command "turn_on_synctex"'
     vim.g.vimtex_quickfix_ignore_filters = {
       "Underfull",
       "Overfull",
