@@ -484,6 +484,13 @@ hl.window_rule({
   workspace = "7",
 })
 
+hl.window_rule({
+  name = "qutebrowser",
+  match = {
+    class = "^org.qutebrowser.qutebrowser$",
+  },
+  workspace = "1",
+})
 
 hl.on("hyprland.start", function()
   hl.exec_cmd("/home/econhead/.local/bin/noctalia-launch")

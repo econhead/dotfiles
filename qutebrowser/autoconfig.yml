@@ -9,7 +9,7 @@ settings:
   colors.webpage.darkmode.enabled:
     economics.utoronto.ca: false
     economics.utoronto.ca/osborne/index.html: false
-    global: true
+    global: false
   content.javascript.clipboard:
     https://chatgpt.com: access-paste
     https://github.com: access-paste
