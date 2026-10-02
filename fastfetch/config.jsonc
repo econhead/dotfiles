@@ -5,79 +5,86 @@
         "type": "kitty-direct",
         "source": "~/.config/fastfetch/logos/Anya-Forger-PNG-Isolated-File.png",
         "padding": {
-            "top": 2,
-            "right":0
+            "top": 1,
+            "right": 0
         }
     },
-"display": {
-    "separator": ": ",
-    "key": {
-        "width": 9
-    }
-},
-       "modules": [
-        "title",
-        "separator",
+
+    "display": {
+        "separator": " "
+    },
+
+    "modules": [
+        {
+            "key": "╔═══════════╗",
+            "type": "custom"
+        },
 
         {
+            "key": "║ {#31} user    {#keys}║",
+            "type": "title",
+            "format": "{user-name}"
+        },
+        {
+            "key": "║ {#32}󰇅 hname   {#keys}║",
+            "type": "title",
+            "format": "{host-name}"
+        },
+        {
+            "key": "║ {#33}󰅐 uptime  {#keys}║",
+            "type": "uptime"
+        },
+        {
+            "key": "║ {#34}{icon} distro  {#keys}║",
             "type": "os",
-            "key": "OS",
             "format": "{name} {version-id}"
         },
         {
-            "type": "host",
-            "key": "Host"
+            "key": "║ {#35}󰌢 host    {#keys}║",
+            "type": "host"
         },
         {
+            "key": "║ {#36} kernel  {#keys}║",
             "type": "kernel",
-            "key": "Kernel"
+            "format": "{release}"
         },
         {
-            "type": "uptime",
-            "key": "Uptime"
+            "key": "║ {#32} shell   {#keys}║",
+            "type": "shell"
         },
         {
-            "type": "packages",
-            "key": "Packages"
+            "key": "║ {#33}󰇄 de      {#keys}║",
+            "type": "de"
         },
         {
-            "type": "shell",
-            "key": "Shell"
+            "key": "║ {#34} wm      {#keys}║",
+            "type": "wm"
         },
         {
-            "type": "de",
-            "key": "DE"
+            "key": "║ {#35} term    {#keys}║",
+            "type": "terminal"
         },
         {
-            "type": "wm",
-            "key": "WM"
-        },
-        {
-            "type": "terminal",
-            "key": "Terminal"
-        },
-        {
-            "type": "terminalfont",
-            "key": "Font"
-        },
-        {
+            "key": "║ {#31}󰍛 cpu     {#keys}║",
             "type": "cpu",
-            "key": "CPU"
+            "showPeCoreCount": true
         },
         {
-            "type": "gpu",
-            "key": "GPU"
+            "key": "║ {#32}󰢮 gpu     {#keys}║",
+            "type": "gpu"
         },
         {
-            "type": "memory",
-            "key": "Memory"
+            "key": "║ {#33} memory  {#keys}║",
+            "type": "memory"
         },
         {
+            "key": "║ {#34}󰉉 disk    {#keys}║",
             "type": "disk",
-            "key": "Disk"
+            "folders": "/"
         },
-        
-        "break",
-        // "colors"
+        {
+            "key": "╚═══════════╝",
+            "type": "custom"
+        }
     ]
 }

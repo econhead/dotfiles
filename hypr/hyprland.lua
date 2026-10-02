@@ -86,7 +86,7 @@ hl.env("QT_QPA_PLATFORMTHEME", "hyprqt6engine")
 hl.config({
   general = {
     gaps_in          = 3,
-    gaps_out         = { top = 15, right = 40, bottom = 35, left = 40, },
+    gaps_out         = { top = 20, right = 30, bottom = 20, left = 30, },
 
     border_size      = 1,
 
@@ -255,8 +255,8 @@ local mainMod = "ALT" -- Sets "Windows" key as main modifier
 
 -- Noctalia
 hl.bind(
-  mainMod .. " + SHIFT + B",
-  hl.dsp.exec_cmd("noctalia msg bar-toggle")
+  mainMod .. " + SHIFT + R",
+  hl.dsp.exec_cmd("noctalia msg plugin noctalia/screen_recorder:service all toggle")
 )
 
 hl.bind(

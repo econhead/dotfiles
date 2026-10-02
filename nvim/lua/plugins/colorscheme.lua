@@ -11,6 +11,11 @@ return {
       vim.g.gruvbox_material_foreground = "material"
       vim.g.gruvbox_material_better_performance = 1
       vim.cmd.colorscheme("gruvbox-material")
+      local hl = vim.api.nvim_set_hl
+
+      -- Custom LaTeX overrides
+      hl(0, "texCmdEnv", { fg = "#ea6962" })
+      hl(0, "texDelim", { fg = "#e78a4e" })
     end,
   }
 }
