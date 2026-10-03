@@ -5,12 +5,11 @@ order = [ "default" ]
 
     [bar.default]
     border = "primary"
-    capsule = true
     capsule_padding = 5.0
-    center = [ "bar", "wallpaper", "mpvpaper", "date", "clock" ]
+    center = [ "bar", "date", "clock" ]
     concave_edge_corners = false
     contact_shadow = true
-    end = [ "bar_3", "cpu", "ram", "network", "battery", "session" ]
+    end = [ "bar_3", "network", "bar_2", "clipboard", "notifications", "volume", "group:g2", "group:g1", "session" ]
     font_weight = 400
     margin_ends = 0
     padding = 0
@@ -20,6 +19,30 @@ order = [ "default" ]
 
         [bar.default.dead_zone.actions]
         back = "bar-show"
+
+        [[bar.default.capsule_group]]
+        accordion = false
+        accordion_direction = "end"
+        border = "primary"
+        border_width = 1.0
+        enabled = true
+        fill = "surface_variant"
+        id = "g1"
+        members = [ "cpu", "ram", "battery" ]
+        opacity = 1.0
+        padding = 5.0
+
+        [[bar.default.capsule_group]]
+        accordion = false
+        accordion_direction = "end"
+        border = "primary"
+        border_width = 1.0
+        enabled = true
+        fill = "surface_variant"
+        id = "g2"
+        members = [ "wallpaper", "wallhaven", "mpvpaper" ]
+        opacity = 1.0
+        padding = 5.0
 
 [battery]
 warning_threshold = 25
@@ -174,7 +197,8 @@ background_opacity = 0.4999999888241291
 
 [plugin_settings."icefish/phone-connect"]
 battery_display = "hidden"
-panel_placement = "floating"
+enable_charging_animation = false
+panel_placement = "widget"
 
 [plugin_settings."noctalia/mpvpaper"]
 picker_open_near_click = true
@@ -187,8 +211,8 @@ video_encoder = "cpu"
 panel_placement = "floating"
 
 [plugin_settings."noctalia/wallhaven"]
+browser_open_near_click = true
 browser_placement = "floating"
-browser_position = "center"
 download_dir = "/home/econhead/Pictures/wallpapers/aenami"
 
 [plugin_settings."riversyx/noctaproton-vpn"]
@@ -210,7 +234,7 @@ enabled = [
 ]
 
 [shell]
-font_family = "Comic Mono"
+font_family = "ComicShannsMono Nerd Font Mono"
 panel_anchor_bar = "default"
 screen_time_enabled = true
 
@@ -222,8 +246,10 @@ screen_time_enabled = true
         global = false
 
     [shell.panel]
+    clipboard_position = "auto"
     control_center_placement = "floating"
-    control_center_position = "center"
+    open_near_click_clipboard = true
+    open_near_click_control_center = true
     open_near_click_wallpaper = true
     session_placement = "floating"
     session_position = "center"
@@ -235,7 +261,8 @@ screen_time_enabled = true
     size = 10
 
     [shell.screenshot]
-    freeze_screen = false
+    confirm_region = true
+    directory = "/home/econhead/Pictures/Screenshots"
 
     [shell.session]
     grid_columns = 5
@@ -254,24 +281,28 @@ wallpaper_scheme = "m3-tonal-spot"
 directory = "/home/econhead/Pictures/wallpapers"
 
     [wallpaper.default]
-    path = "/home/econhead/Pictures/wallpapers/aenami/wall-01.png"
+    path = "/home/econhead/Pictures/wallpapers/aenami/wallhaven-qr3mk7.png"
 
     [wallpaper.last]
-    path = "/home/econhead/Pictures/wallpapers/aenami/wall-01.png"
+    path = "/home/econhead/Pictures/wallpapers/aenami/wallhaven-qr3mk7.png"
 
     [wallpaper.monitors.eDP-1]
-    path = "/home/econhead/Pictures/wallpapers/aenami/wall-01.png"
+    path = "/home/econhead/Pictures/wallpapers/aenami/wallhaven-qr3mk7.png"
 
 [widget.bar]
 enabled = false
 show_idle_on_horizontal = false
 type = "noctalia/timer:bar"
 
+[widget.bar_2]
+scale = 1.2000000000000002
+type = "icefish/phone-connect:bar"
+
 [widget.bar_3]
 type = "riversyx/noctaproton-vpn:bar"
 
 [widget.clock]
-format = "{:%I:%M:%p}"
+format = "{:%I:%M:%S %p}"
 
 [widget.control-center]
 enabled = false
@@ -285,21 +316,26 @@ enabled = false
 
 [widget.media]
 art_size = 25
+capsule = true
+hide_album_art = true
 hide_when_no_media = true
 show_progress = true
 title_scroll = "always"
 
 [widget.mpvpaper]
-enabled = false
 type = "noctalia/mpvpaper:mpvpaper"
 
 [widget.network]
+enabled = false
 show_label = false
 
 [widget.ram]
 font_scale = 0.90000000000000002
+stat = "ram_pct"
 
 [widget.session]
+capsule = true
+capsule_border = "primary"
 icon_color = "error"
 
 [widget.tray]
@@ -308,9 +344,12 @@ enabled = false
 [widget.volume]
 show_label = false
 
-[widget.wallpaper]
-enabled = false
+[widget.wallhaven]
+type = "noctalia/wallhaven:wallhaven"
 
 [widget.workspaces]
+capsule = true
+capsule_border = "primary"
+capsule_border_width = 0.0
 inactive_pill_size = 1.2
 max_label_chars = 2
