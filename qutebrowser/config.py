@@ -22,15 +22,22 @@ c.aliases = {
 # Auto-save Session
 c.auto_save.session = False
 
+# Widevine setup
+c.qt.args = [
+    "widevine-path=/var/lib/widevine/WidevineCdm/_platform_specific/linux_arm64/libwidevinecdm.so",
+]
+
 ## Darkmode Settings
 c.colors.webpage.darkmode.enabled = True
 c.colors.webpage.darkmode.policy.images = "never"
 c.colors.webpage.darkmode.algorithm = "lightness-cielab"
 config.set("colors.webpage.darkmode.enabled", False, "file://*")
 
+config.set("colors.webpage.darkmode.enabled", False, "https://web.whatsapp.com/*")
 config.set("colors.webpage.darkmode.enabled", False, "https://www.youtube.com/*")
 config.set("colors.webpage.darkmode.enabled", False, "https://github.com/*")
 config.set("colors.webpage.darkmode.enabled", False, "https://chatgpt.com/*")
+config.set("colors.webpage.darkmode.enabled", False, "https://chess.com/*")
 config.set(
     "colors.webpage.darkmode.enabled", False, "https://www.probabilitycourse.com/*"
 )
@@ -81,6 +88,7 @@ config.bind(
     "td",
     "config-cycle colors.webpage.darkmode.enabled true false",
 )
+config.bind("cs", "config-source")
 config.bind(",t", "config-cycle tabs.show always never")
 config.bind(",s", "config-cycle statusbar.show always never")
 config.bind(

@@ -15,12 +15,14 @@ settings:
     https://github.com: access-paste
   content.notifications.enabled:
     https://calendar.google.com: true
+    https://web.whatsapp.com: true
     https://www.chess.com: true
+    https://www.netflix.com: false
   content.register_protocol_handler:
     https://calendar.google.com?cid=%25s: true
   content.site_specific_quirks.enabled:
     global: true
   statusbar.show:
-    global: never
+    global: always
   tabs.show:
     global: never

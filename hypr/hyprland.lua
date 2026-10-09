@@ -86,7 +86,7 @@ hl.env("QT_QPA_PLATFORMTHEME", "hyprqt6engine")
 hl.config({
   general = {
     gaps_in          = 3,
-    gaps_out         = { top = 20, right = 30, bottom = 20, left = 30, },
+    gaps_out         = { top = 33, right = 42, bottom = 33, left = 42, },
 
     border_size      = 1,
 
@@ -121,7 +121,7 @@ hl.config({
 
     blur             = {
       enabled  = true,
-      size     = 7,
+      size     = 5,
       passes   = 3,
       vibrancy = 0.1696,
     },
@@ -262,6 +262,16 @@ hl.bind(
 hl.bind(
   mainMod .. " + SHIFT+ Q",
   hl.dsp.exec_cmd("noctalia msg session lock-and-suspend")
+)
+
+hl.bind(
+  mainMod .. " + SHIFT + C",
+  hl.dsp.exec_cmd("noctalia msg panel-toggle clipboard")
+)
+
+hl.bind(
+  mainMod .. " + SHIFT + N",
+  hl.dsp.exec_cmd("noctalia msg panel-toggle control-center notifications")
 )
 
 hl.bind(
@@ -484,13 +494,13 @@ hl.window_rule({
   workspace = "7",
 })
 
-hl.window_rule({
-  name = "qutebrowser",
-  match = {
-    class = "^org.qutebrowser.qutebrowser$",
-  },
-  workspace = "1",
-})
+-- hl.window_rule({
+--   name = "qutebrowser",
+--   match = {
+--     class = "^org.qutebrowser.qutebrowser$",
+--   },
+--   workspace = "1",
+-- })
 
 hl.on("hyprland.start", function()
   hl.exec_cmd("/home/econhead/.local/bin/noctalia-launch")

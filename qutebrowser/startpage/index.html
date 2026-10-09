@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>~/homepage</title>
-    <link rel="stylesheet" type="text/css" href="colors.css">
+    <link id="theme-colors" rel="stylesheet" type="text/css" href="colors.css">
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 
@@ -55,6 +55,7 @@
                 <div class="category">
                     <ul class="links">
                         <li class="title">utilities/</li>
+                        <li><a href="https://web.whatsapp.com/">whatsapp</a></li>
                         <li><a href="https://chatgpt.com/">chatgpt</a></li>
                         <li><a href="https://www.desmos.com/calculator">desmos</a></li>
                         <li><a href="https://www.geogebra.org/calculator">geogebra</a></li>
@@ -65,18 +66,31 @@
     </div>
 
     <script>
-    const bg = getComputedStyle(document.documentElement)
-        .getPropertyValue('--color-bg')
-        .trim();
+    const themeColors = document.getElementById('theme-colors');
 
-    const rgb = bg.match(/\w\w/g).map(x => parseInt(x, 16));
+    function updateCat() {
+        const bg = getComputedStyle(document.documentElement)
+            .getPropertyValue('--color-bg')
+            .trim();
+        const rgb = bg.match(/\w\w/g).map(x => parseInt(x, 16));
+        const brightness =
+            (rgb[0] * 299 + rgb[1] * 587 + rgb[2] * 114) / 1000;
 
-    const brightness =
-        (rgb[0] * 299 + rgb[1] * 587 + rgb[2] * 114) / 1000;
-
-    if (brightness < 128) {
-        document.getElementById('cat').classList.add('dark-cat');
+        document.getElementById('cat').classList.toggle('dark-cat', brightness < 128);
     }
+
+    function refreshTheme() {
+        themeColors.href = `colors.css?refresh=${Date.now()}`;
+    }
+
+    themeColors.addEventListener('load', updateCat);
+    updateCat();
+    setInterval(() => {
+        if (document.visibilityState === 'visible') refreshTheme();
+    }, 10000);
+    document.addEventListener('visibilitychange', () => {
+        if (document.visibilityState === 'visible') refreshTheme();
+    });
     </script>
 
 </body>

@@ -4,7 +4,7 @@ vim.g.maplocalleader = ";"
 local map = vim.keymap.set
 
 map("n", "<Esc>", "<cmd>nohlsearch<CR>", { desc = "Clear search highlighting" })
-map("n", "<leader>s", "<cmd>source<CR>", { desc = "source init.lua" })
+map("n", "<leader>so", "<cmd>source<CR>", { desc = "source init.lua" })
 map("n", "<leader>w", "<cmd>write<CR>", { desc = "Write buffer" })
 map("n", "<leader>q", "<cmd>quit<CR>", { desc = "Quit window" })
 
@@ -19,18 +19,35 @@ map("n", "<leader>vx", "<cmd>close<CR>", { desc = "Close current split" })
 
 map("i", "<C-l>", "<C-g>u<Esc>[s1z=`]a<C-g>u", { desc = "Fix previous spelling mistake" })
 
-map("n", "<leader>tt", "<cmd>TransparentToggle<CR>", { desc = "Toggle Transparency" })
 map("n", "<leader>to", "<cmd>tabnew<CR>", { desc = "Open new tab" })
 map("n", "<leader>tx", "<cmd>tabclose<CR>", { desc = "Close current tab" })
 map("n", "<leader>tn", "<cmd>tabn<CR>", { desc = "Go to next tab" })
 map("n", "<leader>tp", "<cmd>tabp<CR>", { desc = "Go to previous tab" })
 map("n", "<leader>tf", "<cmd>tabnew %<CR>", { desc = "Open current buffer in new tab" })
 
-map("n", "<C-h>", "<cmd>TmuxNavigateLeft<CR>")
-map("n", "<C-j>", "<cmd>TmuxNavigateDown<CR>")
-map("n", "<C-k>", "<cmd>TmuxNavigateUp<CR>")
-map("n", "<C-l>", "<cmd>TmuxNavigateRight<CR>")
-map("n", "<C-\\>", "<cmd>TmuxNavigatePrevious<CR>")
+-- map("n", "<C-h>", "<cmd>TmuxNavigateLeft<CR>")
+-- map("n", "<C-j>", "<cmd>TmuxNavigateDown<CR>")
+-- map("n", "<C-k>", "<cmd>TmuxNavigateUp<CR>")
+-- map("n", "<C-l>", "<cmd>TmuxNavigateRight<CR>")
+-- map("n", "<C-\\>", "<cmd>TmuxNavigatePrevious<CR>")
+
+vim.keymap.set("n", "<leader>tt", function()
+  if vim.g.gruvbox_material_transparent_background == 1 then
+    vim.g.gruvbox_material_transparent_background = 0
+  else
+    vim.g.gruvbox_material_transparent_background = 1
+  end
+
+  vim.cmd.colorscheme("gruvbox-material")
+end, { desc = "Toggle transparent background" })
+
+vim.keymap.set("n", "<leader>st", function()
+  if vim.o.laststatus == 0 then
+    vim.o.laststatus = 2
+  else
+    vim.o.laststatus = 0
+  end
+end, { desc = "toggle statusbar" })
 
 vim.keymap.set("i", "<C-f>", function()
   local root = vim.b.vimtex and vim.b.vimtex.root

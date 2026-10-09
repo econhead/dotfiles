@@ -1,4 +1,4 @@
-config_version = 14
+config_version = 15
 
 [bar]
 order = [ "default" ]
@@ -6,16 +6,17 @@ order = [ "default" ]
     [bar.default]
     border = "primary"
     capsule_padding = 5.0
-    center = [ "bar", "date", "clock" ]
-    concave_edge_corners = false
+    center = [ "date", "bar", "clock" ]
     contact_shadow = true
-    end = [ "bar_3", "network", "bar_2", "clipboard", "notifications", "volume", "group:g2", "group:g1", "session" ]
+    end = [ "group:g1", "notifications", "clipboard", "volume", "bluetooth", "network", "battery", "session" ]
     font_weight = 400
     margin_ends = 0
     padding = 0
-    radius = 0
-    start = [ "workspaces", "media" ]
-    thickness = 26
+    position = "left"
+    radius_bottom_left = 0
+    radius_top_left = 0
+    start = [ "control-center", "bar_2", "group:g2", "workspaces", "media", "audio_visualizer" ]
+    thickness = 30
 
         [bar.default.dead_zone.actions]
         back = "bar-show"
@@ -24,23 +25,23 @@ order = [ "default" ]
         accordion = false
         accordion_direction = "end"
         border = "primary"
-        border_width = 1.0
-        enabled = true
+        border_width = 0.0
+        enabled = false
         fill = "surface_variant"
-        id = "g1"
-        members = [ "cpu", "ram", "battery" ]
+        id = "g2"
+        members = [ "wallpaper", "wallhaven", "mpvpaper" ]
         opacity = 1.0
-        padding = 5.0
+        padding = 0.0
 
         [[bar.default.capsule_group]]
         accordion = false
         accordion_direction = "end"
-        border = "primary"
+        border = ""
         border_width = 1.0
         enabled = true
         fill = "surface_variant"
-        id = "g2"
-        members = [ "wallpaper", "wallhaven", "mpvpaper" ]
+        id = "g1"
+        members = [ "cpu", "ram", "network_tx", "network_rx" ]
         opacity = 1.0
         padding = 5.0
 
@@ -77,20 +78,23 @@ widget_order = []
     [desktop_widgets.widget]
 
 [dock]
-active_scale = 1.2500000186264515
-auto_hide = true
-background_opacity = 0.59999998658895493
+background_opacity = 0.74999998323619366
 border = "primary"
-border_width = 1.0
+cross_axis_padding = 0
 enabled = true
-icon_size = 28
-inactive_scale = 1.0
+icon_size = 25
 item_spacing = 4
-magnification_scale = 1.5500000081956387
-margin_edge = 10
-pinned = [ "kitty", "org.mozilla.firefox", "org.pwmt.zathura", "sioyek" ]
+launcher_icon = "math-function"
+launcher_position = "start"
+magnification = false
+position = "right"
 reserve_space = false
-show_dots = true
+
+[hot_corners]
+enabled = true
+
+    [hot_corners.top_right]
+    action = "window_switcher"
 
 [idle]
 behavior_order = [ "screen-off", "lock", "lock-and-suspend" ]
@@ -124,7 +128,7 @@ schema_version = 2
 widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-widget-0000000000000001", "lockscreen-widget-0000000000000002" ]
 
     [lockscreen_widgets.grid]
-    cell_size = 24
+    cell_size = 16
     major_interval = 4
     visible = true
 
@@ -229,12 +233,11 @@ enabled = [
     "noctalia/timer",
     "noctalia/wallhaven",
     "noctalia/screen_recorder",
-    "noctalia/mpvpaper",
-    "riversyx/noctaproton-vpn"
+    "noctalia/mpvpaper"
 ]
 
 [shell]
-font_family = "ComicShannsMono Nerd Font Mono"
+font_family = "ComicShannsMono Nerd Font"
 panel_anchor_bar = "default"
 screen_time_enabled = true
 
@@ -257,8 +260,7 @@ screen_time_enabled = true
     wallpaper_placement = "floating"
 
     [shell.screen_corners]
-    enabled = true
-    size = 10
+    size = 16
 
     [shell.screenshot]
     confirm_region = true
@@ -267,9 +269,13 @@ screen_time_enabled = true
     [shell.session]
     grid_columns = 5
 
+    [shell.window_switcher]
+    mru = true
+
 [theme]
 builtin = "Ayu"
 community_palette = "Gruvbox Material Hard"
+mode = "dark"
 source = "wallpaper"
 wallpaper_scheme = "m3-tonal-spot"
 
@@ -281,35 +287,38 @@ wallpaper_scheme = "m3-tonal-spot"
 directory = "/home/econhead/Pictures/wallpapers"
 
     [wallpaper.default]
-    path = "/home/econhead/Pictures/wallpapers/aenami/wallhaven-qr3mk7.png"
+    path = "/home/econhead/Pictures/wallpapers/aenami/wallhaven-zpvvkg_2560x1600.png"
 
     [wallpaper.last]
-    path = "/home/econhead/Pictures/wallpapers/aenami/wallhaven-qr3mk7.png"
+    path = "/home/econhead/Pictures/wallpapers/aenami/wallhaven-zpvvkg_2560x1600.png"
 
     [wallpaper.monitors.eDP-1]
-    path = "/home/econhead/Pictures/wallpapers/aenami/wallhaven-qr3mk7.png"
+    path = "/home/econhead/Pictures/wallpapers/aenami/wallhaven-zpvvkg_2560x1600.png"
 
 [widget.bar]
-enabled = false
+capsule = true
+capsule_border = "primary"
 show_idle_on_horizontal = false
 type = "noctalia/timer:bar"
 
 [widget.bar_2]
-scale = 1.2000000000000002
+enabled = false
+scale = 1.1500000000000001
 type = "icefish/phone-connect:bar"
 
-[widget.bar_3]
-type = "riversyx/noctaproton-vpn:bar"
-
 [widget.clock]
-format = "{:%I:%M:%S %p}"
+format = "{:%I:%M:%p}"
 
 [widget.control-center]
-enabled = false
-font_scale = 1.3400000000000001
+capsule = true
+capsule_border_width = 0.5
+capsule_padding = 1
 glyph = "function"
 icon_color = "secondary"
-scale = 1.5
+scale = 1.4500000000000002
+
+[widget.cpu]
+capsule_padding = 10
 
 [widget.launcher]
 enabled = false
@@ -317,8 +326,9 @@ enabled = false
 [widget.media]
 art_size = 25
 capsule = true
-hide_album_art = true
 hide_when_no_media = true
+rotate_album_art = true
+scale = 0.85000000000000009
 show_progress = true
 title_scroll = "always"
 
@@ -326,8 +336,21 @@ title_scroll = "always"
 type = "noctalia/mpvpaper:mpvpaper"
 
 [widget.network]
-enabled = false
+font_scale = 0.90000000000000002
 show_label = false
+vpn_status = "hidden"
+
+[widget.network_rx]
+capsule_padding = 10
+enabled = false
+network_speed_compact = true
+visualization = "none"
+
+[widget.network_tx]
+capsule_padding = 10
+enabled = false
+network_speed_compact = true
+visualization = "none"
 
 [widget.ram]
 font_scale = 0.90000000000000002
@@ -336,7 +359,9 @@ stat = "ram_pct"
 [widget.session]
 capsule = true
 capsule_border = "primary"
+capsule_radius = "auto"
 icon_color = "error"
+scale = 0.85000000000000009
 
 [widget.tray]
 enabled = false
@@ -345,11 +370,12 @@ enabled = false
 show_label = false
 
 [widget.wallhaven]
+enabled = false
 type = "noctalia/wallhaven:wallhaven"
 
 [widget.workspaces]
-capsule = true
+active_pill_size = 1.5
 capsule_border = "primary"
 capsule_border_width = 0.0
-inactive_pill_size = 1.2
+hide_when_empty = true
 max_label_chars = 2

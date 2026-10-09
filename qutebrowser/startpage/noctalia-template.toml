@@ -1,0 +1,3 @@
+[theme.templates.user.qutebrowser_startpage]
+input_path = "$XDG_CONFIG_HOME/qutebrowser/startpage/template.css"
+output_path = "$XDG_CONFIG_HOME/qutebrowser/startpage/colors.css"

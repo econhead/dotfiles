@@ -1,5 +1,9 @@
 return {
   "folke/snacks.nvim",
+  dependencies = { "nvim-tree/nvim-web-devicons",
+    "MaximilianLloyd/ascii.nvim",
+    "MunifTanjim/nui.nvim",
+  },
   priority = 1000,
   lazy = false,
   opts = {
