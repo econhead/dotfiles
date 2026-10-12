@@ -26,7 +26,11 @@ c.auto_save.session = False
 c.qt.args = [
     "widevine-path=/var/lib/widevine/WidevineCdm/_platform_specific/linux_arm64/libwidevinecdm.so",
 ]
-
+config.set(
+    "content.headers.user_agent",
+    "Mozilla/5.0 (X11; CrOS aarch64 15917.71.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/127.0.0.0 Safari/537.36",
+    "https://*.netflix.com/*",
+)
 ## Darkmode Settings
 c.colors.webpage.darkmode.enabled = True
 c.colors.webpage.darkmode.policy.images = "never"

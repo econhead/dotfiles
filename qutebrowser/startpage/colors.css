@@ -1,10 +1,10 @@
 /* Noctalia startpage colors - auto-generated from matugen color schemes */
 :root {
-  --color-bg: #19120c;
-  --color-fg: #efe0d5;
-  --color-primary: #fcb975;
-  --color-secondary: #e1c1a4;
-  --color-tertiary: #c0cc9a;
-  --color-link-visited: #d5c3b5;
+  --color-bg: #18130b;
+  --color-fg: #ede1d4;
+  --color-primary: #f2be6e;
+  --color-secondary: #dcc3a1;
+  --color-tertiary: #b6cea3;
+  --color-link-visited: #d2c4b4;
   --cat-filter: none;
 }

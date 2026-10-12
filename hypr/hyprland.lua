@@ -122,7 +122,7 @@ hl.config({
     blur             = {
       enabled  = true,
       size     = 5,
-      passes   = 3,
+      passes   = 4,
       vibrancy = 0.1696,
     },
   },
@@ -556,7 +556,8 @@ hl.window_rule {
   match = {
     class = "^org.qutebrowser.qutebrowser$",
   },
-  opacity = 0.90,
+  opacity = 0.95,
+
 }
 
 -- HyprMod managed settings

@@ -8,7 +8,18 @@ order = [ "default" ]
     capsule_padding = 5.0
     center = [ "date", "bar", "clock" ]
     contact_shadow = true
-    end = [ "group:g1", "notifications", "clipboard", "volume", "bluetooth", "network", "battery", "session" ]
+    end = [
+        "bar_3",
+        "bar_4",
+        "group:g1",
+        "notifications",
+        "clipboard",
+        "volume",
+        "bluetooth",
+        "network",
+        "battery",
+        "session"
+    ]
     font_weight = 400
     margin_ends = 0
     padding = 0
@@ -26,7 +37,7 @@ order = [ "default" ]
         accordion_direction = "end"
         border = "primary"
         border_width = 0.0
-        enabled = false
+        enabled = true
         fill = "surface_variant"
         id = "g2"
         members = [ "wallpaper", "wallhaven", "mpvpaper" ]
@@ -233,13 +244,15 @@ enabled = [
     "noctalia/timer",
     "noctalia/wallhaven",
     "noctalia/screen_recorder",
-    "noctalia/mpvpaper"
+    "noctalia/mpvpaper",
+    "riversyx/noctaproton-vpn"
 ]
 
 [shell]
 font_family = "ComicShannsMono Nerd Font"
 panel_anchor_bar = "default"
 screen_time_enabled = true
+settings_window_translucent = true
 
     [shell.launcher]
     categories = false
@@ -272,6 +285,9 @@ screen_time_enabled = true
     [shell.window_switcher]
     mru = true
 
+[system.monitor]
+ram_pct_activity_threshold = 75
+
 [theme]
 builtin = "Ayu"
 community_palette = "Gruvbox Material Hard"
@@ -287,13 +303,13 @@ wallpaper_scheme = "m3-tonal-spot"
 directory = "/home/econhead/Pictures/wallpapers"
 
     [wallpaper.default]
-    path = "/home/econhead/Pictures/wallpapers/aenami/wallhaven-zpvvkg_2560x1600.png"
+    path = "/home/econhead/Pictures/wallpapers/aenami/vagabond.jpg"
 
     [wallpaper.last]
-    path = "/home/econhead/Pictures/wallpapers/aenami/wallhaven-zpvvkg_2560x1600.png"
+    path = "/home/econhead/Pictures/wallpapers/aenami/vagabond.jpg"
 
     [wallpaper.monitors.eDP-1]
-    path = "/home/econhead/Pictures/wallpapers/aenami/wallhaven-zpvvkg_2560x1600.png"
+    path = "/home/econhead/Pictures/wallpapers/aenami/vagabond.jpg"
 
 [widget.bar]
 capsule = true
@@ -305,6 +321,15 @@ type = "noctalia/timer:bar"
 enabled = false
 scale = 1.1500000000000001
 type = "icefish/phone-connect:bar"
+
+[widget.bar_3]
+type = "riversyx/noctaproton-vpn:bar"
+
+[widget.bar_4]
+type = "icefish/phone-connect:bar"
+
+[widget.bluetooth]
+enabled = false
 
 [widget.clock]
 format = "{:%I:%M:%p}"
@@ -367,6 +392,7 @@ scale = 0.85000000000000009
 enabled = false
 
 [widget.volume]
+enabled = false
 show_label = false
 
 [widget.wallhaven]
